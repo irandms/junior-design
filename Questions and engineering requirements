@@ -1,0 +1,41 @@
+Engineering Requirements:
+    Swtich needs to work with household lights, needs to turn on and off 2 independent household lights (100W incadenscent bulbs).
+    Report wattage use.
+
+  Application:
+    9 out of 10 users need to know how to turn on the lights within 10 seconds, without having seen the app before
+
+  Safety:
+    Needs to be safe.
+    US standard plugs
+    No objects greater than 1mm diameter will enter the enclosure.
+    Disables if more than 5A is drawn from the wall
+    Physical Switch
+
+    Must set itself off with a timer that goes up to an hour. Plus or minus a minute.
+    System must be wireless.
+    Accecpt commands from phone from over 20 feet away.
+
+  Display status of outputs. Each output displays up to 100W and 120VAC. 
+  Outputs will turn off if timer is selected, otherwise it will stay on. 
+
+Additions:
+  Tells you how much power is being used.
+  Display on the device.
+  Sounds from device.
+
+
+
+Questions:
+  How many outputs per channel?
+  Strip or cover?
+    Does information need to displayed locally?
+  Android?
+  Specifications of appplication (platform)?
+  Bluetooth fail?
+  Default setting of the system?
+  1mm size clarification?  Size specifications?
+  Wireless plugs?
+  
+  
+  
