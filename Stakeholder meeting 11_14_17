@@ -1,0 +1,78 @@
+Stakeholder meeting 1 11/14/17
+
+Engineering reuqirements
+  Each channel should work at the same time.
+  Needs to report current and power is being drawn
+    Needs to be reported on the App
+    App must be simple
+    App has to run on android
+
+   Safety
+    Nothing beyond the 1mm must enter the enclosure
+    No wires showing, etc
+    
+    Strip or cover will work, but same safety either way
+    5A MAX, but you can draw lower
+    
+  Timer
+  Can tell the lights to turn on or off
+  or put a timer on the channels, plus or minus a minute
+  Max timer can go above an hour (Could be an additional contribution)
+  Minute time intervals 
+  1 plug per timer
+  
+  Power
+  Provide power updates every 10 minutes, and it can be average
+  Instantaneuos would be nice
+  
+  Display on device
+  Up to us
+  
+  Can add plugs to channels (Possible additions)
+  
+  Bluetooth Fail:
+  Continue working normally.
+  Possible tolerance
+  Possibly tell user they are outside the range
+  
+  Default Setting:
+  Channels disabled, and turn on via the app (safest option)
+  Could possibly configure to personal prefernces
+  
+  Bluetooth notification
+    An LED that determines the state of the device
+      Paired
+      Ready to pair
+      Overheating
+ 
+  Can only use existing power supply
+  Could possibly put small power supply inside enclosure
+    Up to us
+    
+  Current Sensing Ideas:
+    Review existing architetures
+    Have a higher rating than 5A (Due to variation)
+    Sensor should be able to handle most currents
+  
+  We plan on using timer on microController
+    Make sure the MC has the range to go to an hour
+  
+  Do a review that our hardware will be safe and meet our requirements
+  Then devy up tasks
+  
+  No reports or anything
+  Questions or concerns we can reach out to her.
+  
+  
+ADDITIONS:
+  Reporting Power:
+    Could work, but it is continuation of the project
+  Display on the device:
+    Is allowed
+  Sound Alert:
+    Is allowed, possibly include other alerts
+  
+  
+  
+  
+  
