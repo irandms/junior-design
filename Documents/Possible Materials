@@ -1,9 +1,11 @@
 Microcontroller
     - Atmel AVR (ATmega series, i.e. ATmega328p)
         - External Bluetooth required
+        - https://www.adafruit.com/product/2479
+        - https://www.adafruit.com/product/2633
     - STM32 w/ integrated BLE (BlueNRG-1 or BlueNRG-2) ( http://www.st.com/en/evaluation-tools/steval-idb007v1.html )
     - Silicon Labs Blue Gecko (https://www.silabs.com/products/development-tools/wireless/bluetooth/bluegecko-bluetooth-low-energy-module-wireless-starter-kit)
-    - http://www.robotshop.com/en/nrf51822-bluetooth-40-module-pins.html?gclid=Cj0KCQiAi7XQBRDnARIsANeLIevq_ffe_pbzaxEoBhRr4PWyPWvlx1VyxKZiPSc8xXrktspnly0DPZkaAh-EEALw_wcB
+    - ARM Cortex-M0 with BLE http://www.robotshop.com/en/nrf51822-bluetooth-40-module-pins.html?gclid=Cj0KCQiAi7XQBRDnARIsANeLIevq_ffe_pbzaxEoBhRr4PWyPWvlx1VyxKZiPSc8xXrktspnly0DPZkaAh-EEALw_wcB
 
 Power/Current Sense
     - ACS723 Hall Effect IC ( http://www.allegromicro.com/en/Products/Current-Sensor-ICs/Zero-To-Fifty-Amp-Integrated-Conductor-Sensor-ICs/ACS723.aspx )
@@ -12,6 +14,9 @@ Power/Current Sense
 Bluetooth and the Web
     - https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web
     - https://medium.com/@urish/start-building-with-web-bluetooth-and-progressive-web-apps-6534835959a6
+
+Power Supply
+    - 120 VAC to 10 VAC Transformer (https://www.mouser.com/ProductDetail/Hammond-Manufacturing/BC2DA/?qs=sGAEpiMZZMvwUzoUXIIvyW8HfC4QLhUe2ZHvpTClyus%3D)
 
 General Things:
     - Mains Isolation (PCB must have large gap of no conductors between High and Low Voltage areas
