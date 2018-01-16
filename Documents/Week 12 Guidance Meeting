@@ -1,0 +1,27 @@
+Asked for requirements
+
+Spencer asking questions about AC current readings
+  Decide on how accurate we want the current reading to be
+  
+  Most accurate point should be around 700mA
+  
+  Test multiple situations for block check-off
+  We define how well the block works from interfaces and requirements
+    Change interface definitions to apply to just the block instead of the system
+    
+    Define clear properties so that indivuduals can work on their own.
+    Pictures function as proper documentation
+    
+   Videos are encouraged for block checkoff
+   
+   Enclosures are expected to have connectors
+   
+   3D printer available via JD class
+   Laser-Cutting also viable option
+   
+   Hweekend has available bluetooth project code
+   
+   Adjust time of PWM pulse but keeping same frequency
+   
+   Possibly start creating a list of materials for PCB
+   Recommend KiCAD for design.
