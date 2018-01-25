@@ -2,18 +2,20 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-#include "ChannelTimer.h"
+#include "Channel.h"
 
 #define CLKIO_256       _BV(CS12)
 #define TCNT1_OFFSET    3035
+
 #define NUM_CHANNELS    2
+#define CH0_EN_PIN    PD4
+#define CH1_EN_PIN    PD5
 
 typedef struct {
-    ChannelTimer ctimers[NUM_CHANNELS];
+    Channel channels[NUM_CHANNELS];
 } GlobalVars;
 
 GlobalVars Globals;
-
 
 /*
  * Timer1_WriteTCNT
@@ -44,24 +46,27 @@ void Timer1_Initialize() {
 }
 
 void setup() {
+    Globals.channels[0].SetPin(CH0_EN_PIN);
+    Globals.channels[1].SetPin(CH1_EN_PIN);
     Serial.begin(19200);
+    
     Timer1_Initialize();
-    Globals.ctimers[0].SetDuration(10);
-    Globals.ctimers[1].SetDuration(300);
+    Globals.channels[0].EnableTimer(3);
+    Globals.channels[1].EnableTimer(4);
 
     sei();
 
     Serial.println("program started");
     while(true) {
-      Globals.ctimers[0].Tick();
     }
 }
 
 ISR(TIMER1_OVF_vect) {
-  if(Globals.ctimers[0].Tick()) {
+  if( Globals.channels[0].Tick() ) {
+    Serial.println("CH0 EXPIRE");
   }
-  if(Globals.ctimers[1].Tick()) {
-    Serial.println("300 seconds have passed");
+  if( Globals.channels[1].Tick() ) {
+    Serial.println("CH1 EXPIRE");
   }
   Timer1_WriteTCNT(TCNT1_OFFSET);
 }
