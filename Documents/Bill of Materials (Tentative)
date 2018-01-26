@@ -1,0 +1,18 @@
+Sound and Display Block:
+  Sound Block:
+    100 uF electrolytic Capacitor
+    1 Jameco 135694 Speaker
+  Display: 
+  2 LTC-4627 Seven Segment Displays
+  4 470 Ohm Resistors
+
+AC Sensing Control Block
+  Songle SRD Relays
+  ACS712 Current Sensing ICs
+  Bluetooth LE Bluefruit
+
+AC to DC Power Supply
+  Transformer
+  Diodes
+  Capacitors
+  Resistors
