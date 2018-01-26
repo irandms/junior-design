@@ -3,6 +3,9 @@
 #include <util/delay.h>
 
 #include "Channel.h"
+#include "SoundSystem.h"
+#include "scale16.h"
+#include "galaga.h"
 
 #define CLKIO_256       _BV(CS12)
 #define TCNT1_OFFSET    3035
@@ -49,6 +52,11 @@ void setup() {
     Globals.channels[0].SetPin(CH0_EN_PIN);
     Globals.channels[1].SetPin(CH1_EN_PIN);
     Serial.begin(19200);
+    SoundSystem_Enable();
+    for(int i = 0; i < galaga_length; i++) {
+      playNote(galaga[i]);
+    }
+    SoundSystem_Disable();
     
     Timer1_Initialize();
     Globals.channels[0].EnableTimer(3);
