@@ -1,0 +1,39 @@
+Talked about  what we have been working on since the last meeting
+
+No wires into a hole to get soldered.
+
+No wires soldered directly to any circuit board.
+
+Limit the number of wires, use zipties!
+  No abnormal rattles
+  
+  "that would be pretty sucky" - Donathon Herald
+  
+ Molex connector: used for connectors.
+  Inside, there are the pins. 
+  Make sure the pins are compatible
+  
+  Last day to have PCB sent out is Monday of week 7.
+  
+  Don recommends blue wiring to fix traces.
+    Directly soldering on the PCB is allowed.
+  
+  Also, design the PCB so that blocks just "click" onto the board
+  
+  Get a big wire so that there is no voltage drop across the wire.
+  Don thinks the wire is responsible for it
+  
+  Trace Width Calculater and American Wire Gauge
+  
+  Donathon Herald slurped
+  
+  Design the the enclosure so that it reduces the number if connectors
+  
+  Make sure grounds are connected in the enclosure
+  
+  Consider adding flyback diodes
+  Avoid high power spikes that effect digital signals
+  
+  Use HWeekend for bluetooth resource
+  
+  Donathon Herald moaned.
