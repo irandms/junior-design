@@ -14,5 +14,6 @@ typedef struct {
 
 void playNote(Note note);
 void playNotes(uint8_t tone1, uint8_t tone2, uint8_t duration);
+void playBackgroundNote(Note note);
 void SoundSystem_Enable();
 void SoundSystem_Disable();

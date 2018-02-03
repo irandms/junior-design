@@ -7,6 +7,7 @@ void Channel::SetPins(int relayPin, int readPin) {
     reads.SetPin(readPin);
     setBit(CH_DDR, relayPin);
     setBit(CH_PORT, relayPin);
+    overcurrentDetected = false;
 }
 
 void Channel::EnableTimer(Time seconds) {

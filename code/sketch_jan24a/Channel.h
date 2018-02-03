@@ -14,6 +14,7 @@ class Channel {
         ChannelTimer t;
         ChannelReadings reads;
         int relayPin;
+        bool overcurrentDetected;
     public:
         void SetPins(int relayPin, int readPin);
         bool Tick();

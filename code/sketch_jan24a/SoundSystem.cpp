@@ -18,6 +18,11 @@ void playNote(Note note) {
   }
 }
 
+void playBackgroundNote(Note note) {
+  OCR0A = note.Tone1;
+  OCR2A = note.Tone2;
+}
+
 void playNotes(uint8_t tone1, uint8_t tone2, uint8_t duration) {
   OCR0A = tone1;
   OCR2A = tone2;
@@ -30,20 +35,23 @@ void playNotes(uint8_t tone1, uint8_t tone2, uint8_t duration) {
 
 void SoundSystem_Enable() {
     // Timer 0, Fast PWM/CTC Mode, 1/256 Clock Prescale
-    TCCR0A = _BV(COM0A0) | _BV(WGM01) | _BV(WGM00);
+    TCCR0A = _BV(WGM01) | _BV(WGM00);
     TCCR0B = _BV(WGM02) | _BV(CS02);
 
     // Timer 2, Fast PWM/CTC Mode, 1/256 Clock Prescale
-    TCCR2A = _BV(COM2A0) | _BV(WGM21) | _BV(WGM20);
+    TCCR2A = _BV(WGM21) | _BV(WGM20);
     TCCR2B = _BV(WGM22) | _BV(CS22) | _BV(CS21);
+
+    TIMSK0 = _BV(OCIE0A);
+    TIMSK2 = _BV(OCIE2A);
+    
     SPEAKER1_DDR |= _BV(SPEAKER1_PIN);
     SPEAKER2_DDR |= _BV(SPEAKER2_PIN);
 }
 
 void SoundSystem_Disable() {
-    // Timer 0/2 disconnect clock
-    TCCR2B = 0;
     TCCR0B = 0;
+    TCCR2B = 0;
     SPEAKER1_DDR &= ~_BV(SPEAKER1_PIN);
     SPEAKER2_DDR &= ~_BV(SPEAKER2_PIN);
 }
