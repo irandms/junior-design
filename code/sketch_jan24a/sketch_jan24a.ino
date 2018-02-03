@@ -4,6 +4,7 @@
 
 #include "Channel.h"
 #include "SoundSystem.h"
+#include "pinDefines.h"
 #include "scale16.h"
 #include "galaga.h"
 
@@ -11,14 +12,13 @@
 #define TCNT1_OFFSET    3035
 
 #define NUM_CHANNELS    2
-#define CH0_EN_PIN    PD4
-#define CH1_EN_PIN    PD5
+
 
 typedef struct {
     Channel channels[NUM_CHANNELS];
 } GlobalVars;
 
-GlobalVars Globals;
+static GlobalVars Globals;
 
 /*
  * Timer1_WriteTCNT
@@ -49,23 +49,37 @@ void Timer1_Initialize() {
 }
 
 void setup() {
-    Globals.channels[0].SetPin(CH0_EN_PIN);
-    Globals.channels[1].SetPin(CH1_EN_PIN);
-    Serial.begin(19200);
-    SoundSystem_Enable();
-    for(int i = 0; i < galaga_length; i++) {
-      playNote(galaga[i]);
+    Serial.begin(115200);
+    Globals.channels[0].SetPins(CH0_EN_PIN, CH0_READ_PIN);
+    Globals.channels[1].SetPins(CH1_EN_PIN, CH1_READ_PIN);
+    Globals.channels[0].CalculateDCValues();
+    Globals.channels[1].CalculateDCValues();
+
+    if(true) {
+      SoundSystem_Enable();
+      for(int i = 0; i < galaga_length; i++) {
+        playNote(galaga[i]);
+      }
+      SoundSystem_Disable();
     }
-    SoundSystem_Disable();
-    
+
+    Globals.channels[0].Enable();
+    Globals.channels[1].Enable();
+
     Timer1_Initialize();
     Globals.channels[0].EnableTimer(3);
-    Globals.channels[1].EnableTimer(4);
+    Globals.channels[1].EnableTimer(5);
 
     sei();
 
-    Serial.println("program started");
+    Serial.println("pgm start");
     while(true) {
+      double rms1 = Globals.channels[1].ReadCurrent() / 22.8;
+      double rms2 = Globals.channels[1].ReadCurrent() / 22.8; 
+      Serial.print("c1: ");
+      Serial.print(rms1);
+      Serial.print("c2: ");
+      Serial.println(rms2);
     }
 }
 
