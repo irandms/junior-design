@@ -20,6 +20,7 @@
 
 #define NUM_CHANNELS    2
 
+uint16_t GLOBAL_TIME_PLEASE_REMOVE;
 
 typedef struct {
     Channel channels[NUM_CHANNELS];
@@ -27,6 +28,7 @@ typedef struct {
 } GlobalVars;
 
 static GlobalVars Globals;
+Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
 /*
  * Timer1_WriteTCNT
@@ -56,12 +58,14 @@ void Timer1_Initialize() {
     TCCR1B |= CLKIO_256;
 }
 
+void IRQ_Initialize() {
+    EIMSK |= _BV(INT0);
+}
+
 void setup() {
     Serial.begin(115200);
-    SPI.setClockDivider(SPI_CLOCK_DIV2);
-    SPI.setDataMode(SPI_MODE0);
-    SPI.setBitOrder(MSBFIRST);
     SPI.begin();
+    
     Globals.channels[0].SetPins(CH0_EN_PIN, CH0_READ_PIN);
     Globals.channels[1].SetPins(CH1_EN_PIN, CH1_READ_PIN);
     Globals.disp.AttachSlaveSelect(DISPLAY_SS);
@@ -69,7 +73,7 @@ void setup() {
     Globals.channels[1].CalculateDCValues();
     Globals.disp.Initialize();
 
-    if(true) {
+    if(false) {
       SoundSystem_Enable();
       for(int i = 0; i < galaga_length; i++) {
         playNote(galaga[i]);
@@ -79,10 +83,25 @@ void setup() {
 
     Globals.channels[0].Enable();
     Globals.channels[1].Enable();
-
+    
+    GLOBAL_TIME_PLEASE_REMOVE = 0;
     Timer1_Initialize();
     Globals.channels[0].EnableTimer(3);
-    Globals.channels[1].EnableTimer(5);
+    Globals.channels[1].EnableTimer(3600);
+
+    if( !ble.begin(VERBOSE_MODE) )
+    {
+      Serial.println("No BLE found?");
+      while(1);
+    }
+    /* Disable command echo from Bluefruit */
+    ble.echo(false);
+    
+    Serial.println("info:");
+    /* Print Bluefruit information */
+    ble.info();
+    ble.verbose(false);
+
 
     sei();
 
@@ -94,13 +113,42 @@ void setup() {
       Globals.disp.WriteDouble(rms2, 1);
       
       if(rms1 > 2.0) {
-        SoundSystem_Enable();
-        playBackgroundNote(galaga[2]);
+        //SoundSystem_Enable();
+        //playBackgroundNote(galaga[2]);
+          digitalWrite(10, LOW);
+          SPI.transfer(0x0F);
+          SPI.transfer(0x01); // Normal mode, not test
+          digitalWrite(10, HIGH);
       }
+      
+      if(ble.isConnected()) {
+        ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
+        // Set module to DATA mode
+        ble.setMode(BLUEFRUIT_MODE_DATA);
+
+      }
+
+      // Echo received data
+      while ( ble.available() )
+      {
+        int c = ble.read();
+        ble.print(c);
+      }
+
     }
 }
 
+ISR(INT0_vect) {
+  Serial.println("INT0 triggered");
+}
+
 ISR(TIMER1_OVF_vect) {
+  GLOBAL_TIME_PLEASE_REMOVE++;
+  Serial.println(GLOBAL_TIME_PLEASE_REMOVE);
+  Globals.disp.ToggleColon(DISPLAY_COLON_0);
+  Globals.disp.ToggleColon(DISPLAY_COLON_1);
+  Globals.disp.ToggleColon(DISPLAY_EXTRA_0);
+  Globals.disp.ToggleColon(DISPLAY_EXTRA_1);
   if( Globals.channels[0].Tick() ) {
     Serial.println("CH0 EXPIRE");
   }
