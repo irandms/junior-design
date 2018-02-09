@@ -9,18 +9,6 @@
 #define BUFSIZE                        160   // Size of the read buffer for incoming data
 #define VERBOSE_MODE                   true  // If set to 'true' enables debug output
 
-
-// SOFTWARE UART SETTINGS
-// ----------------------------------------------------------------------------------------------
-// The following macros declare the pins that will be used for 'SW' serial.
-// You should use this option if you are connecting the UART Friend to an UNO
-// ----------------------------------------------------------------------------------------------
-#define BLUEFRUIT_SWUART_RXD_PIN       9    // Required for software serial!
-#define BLUEFRUIT_SWUART_TXD_PIN       10   // Required for software serial!
-#define BLUEFRUIT_UART_CTS_PIN         11   // Required for software serial!
-#define BLUEFRUIT_UART_RTS_PIN         -1   // Optional, set to -1 if unused
-
-
 // HARDWARE UART SETTINGS
 // ----------------------------------------------------------------------------------------------
 // The following macros declare the HW serial port you are using. Uncomment
@@ -45,17 +33,4 @@
 // using HW SPI.  This should be used with nRF51822 based Bluefruit LE modules
 // that use SPI (Bluefruit LE SPI Friend).
 // ----------------------------------------------------------------------------------------------
-#define BLUEFRUIT_SPI_CS               9
-#define BLUEFRUIT_SPI_IRQ              2
-#define BLUEFRUIT_SPI_RST              4    // Optional but recommended, set to -1 if unused
-
-// SOFTWARE SPI SETTINGS
-// ----------------------------------------------------------------------------------------------
-// The following macros declare the pins to use for SW SPI communication.
-// This should be used with nRF51822 based Bluefruit LE modules that use SPI
-// (Bluefruit LE SPI Friend).
-// ----------------------------------------------------------------------------------------------
-#define BLUEFRUIT_SPI_SCK              13
-#define BLUEFRUIT_SPI_MISO             12
-#define BLUEFRUIT_SPI_MOSI             11
 

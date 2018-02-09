@@ -1,13 +1,15 @@
+// Library headers
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <SPI.h>
 
+// Bluetooth/Bluefruit headers and configuration
 #include "Adafruit_BLE.h"
 #include "Adafruit_BluefruitLE_SPI.h"
-
 #include "BluefruitConfig.h"
 
+// Project-specific headers
 #include "Channel.h"
 #include "SoundSystem.h"
 #include "DisplaySystem.h"
@@ -17,10 +19,7 @@
 
 #define CLKIO_256       _BV(CS12)
 #define TCNT1_OFFSET    3035
-
 #define NUM_CHANNELS    2
-
-uint16_t GLOBAL_TIME_PLEASE_REMOVE;
 
 typedef struct {
     Channel channels[NUM_CHANNELS];
@@ -58,10 +57,6 @@ void Timer1_Initialize() {
     TCCR1B |= CLKIO_256;
 }
 
-void IRQ_Initialize() {
-    EIMSK |= _BV(INT0);
-}
-
 void setup() {
     Serial.begin(115200);
     SPI.begin();
@@ -84,7 +79,6 @@ void setup() {
     Globals.channels[0].Enable();
     Globals.channels[1].Enable();
     
-    GLOBAL_TIME_PLEASE_REMOVE = 0;
     Timer1_Initialize();
     Globals.channels[0].EnableTimer(3);
     Globals.channels[1].EnableTimer(3600);
@@ -107,7 +101,7 @@ void setup() {
 
     Serial.println("pgm start");
     while(true) {
-      double rms1 = Globals.channels[1].ReadCurrent() / 22.8;
+      double rms1 = Globals.channels[0].ReadCurrent() / 22.8;
       double rms2 = Globals.channels[1].ReadCurrent() / 22.8; 
       Globals.disp.WriteDouble(rms1, 0);
       Globals.disp.WriteDouble(rms2, 1);
@@ -143,8 +137,6 @@ ISR(INT0_vect) {
 }
 
 ISR(TIMER1_OVF_vect) {
-  GLOBAL_TIME_PLEASE_REMOVE++;
-  Serial.println(GLOBAL_TIME_PLEASE_REMOVE);
   Globals.disp.ToggleColon(DISPLAY_COLON_0);
   Globals.disp.ToggleColon(DISPLAY_COLON_1);
   Globals.disp.ToggleColon(DISPLAY_EXTRA_0);
@@ -158,15 +150,17 @@ ISR(TIMER1_OVF_vect) {
   Timer1_WriteTCNT(TCNT1_OFFSET);
 }
 
-ISR (TIMER2_COMPA_vect)
-{
-    SPEAKER1_PORT ^= _BV(SPEAKER1_PIN);
-}
 
 ISR (TIMER0_COMPA_vect)
 {
     SPEAKER2_PORT ^= _BV(SPEAKER2_PIN);
 }
+
+ISR (TIMER2_COMPA_vect)
+{
+    SPEAKER1_PORT ^= _BV(SPEAKER1_PIN);
+}
+
 
 void loop() {
 

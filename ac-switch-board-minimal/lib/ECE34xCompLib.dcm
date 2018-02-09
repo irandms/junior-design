@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ACS723
+D ACS723 Current IC from Allegro Microsystems LLC
+K AC Current Sense
+$ENDCMP
+#
+#End Doc Library
