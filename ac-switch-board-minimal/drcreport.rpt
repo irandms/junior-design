@@ -1,0 +1,14 @@
+** Drc report for /home/irandms/ownCloud/school/JuniorDesign/junior-design/ac-switch-board-minimal/ac-switch-board-minimal.kicad_pcb **
+** Created on 2018-02-09 19:39:33 **
+
+** Found 0 DRC errors **
+
+** Found 2 unconnected pads **
+ErrType(2): Unconnected pads
+    @ (5.0258 in,2.6500 in): Pad 2 on F.Cu, Non-copper of C18 net GND
+    @ (4.8250 in,2.6463 in): Pad 2 on F.Cu, Non-copper of C14
+ErrType(2): Unconnected pads
+    @ (4.2250 in,1.9000 in): Pad 3 on F.Cu, B.Cu, Internal, Non-copper of D1 net GND
+    @ (4.1969 in,2.2500 in): Pad 2 on F.Cu, Non-copper of R4
+
+** End of Report **
