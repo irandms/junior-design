@@ -1,7 +1,7 @@
 #pragma once
 #include "SoundSystem.h"
 #include "scale16.h"
-const Note galaga[] = {
+const Note song[] = {
     {G3, E4, 9}, 
     {C4, G3, 3},
     {D4, D4, 9},
@@ -37,5 +37,5 @@ const Note galaga[] = {
     {E4, B3, 4},
     {D4, A3, 4}
   };
-extern const uint8_t galaga_length = sizeof(galaga) / sizeof(Note);
+extern const uint8_t song_length = sizeof(song) / sizeof(Note);
 

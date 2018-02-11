@@ -2,6 +2,17 @@
 #include "Channel.h"
 #include "pinDefines.h"
 
+/*
+ * SetPins
+ *
+ * This function attaches a relay control pin, relayPin,
+ * and an ADC read pin, readPin, to a Channel object.
+ * These two physical GPIO pins are used for relay control
+ * and AC current sensing respectively.
+ *
+ * NOTE: This function MUST be called immediately after instantiating
+ * a Channel object, and before any other method calls!
+ */
 void Channel::SetPins(int relayPin, int readPin) {
     this->relayPin = relayPin;
     reads.SetPin(readPin);
@@ -10,35 +21,65 @@ void Channel::SetPins(int relayPin, int readPin) {
     overcurrentDetected = false;
 }
 
+/*
+ * EnableTimer
+ *
+ * This method enables the ChannelTimer for a Channel,
+ * providing the duration of the timer, and explicitly enabling
+ * the AC channel.
+ */
 void Channel::EnableTimer(Time seconds) {
-    t.SetDuration(seconds);
+    t.SetDuration(seconds); // Pass the duration to the ChannelTimer
     TimerEnabled = true;
-    Enabled = true;
-    clearBit(CH_PORT, relayPin);
+    Enable();
 }
 
+/*
+ * DisableTimer
+ *
+ * This method disables the ChannelTimer for a Channel.
+ * The Channel maintains it's state (Enabled or Disabled),
+ * and the ChannelTimer's duration continues to decrease.
+ */
 void Channel::DisableTimer() {
     TimerEnabled = false;
 }
 
+/*
+ * Enable
+ *
+ * This method enables an AC channel for output.
+ */
 void Channel::Enable() {
     Enabled = true;
     clearBit(CH_PORT, relayPin);
 }
 
+/*
+ * Disable
+ *
+ * This method disables an AC channel for output.
+ */
 void Channel::Disable() {
     Enabled = false;
     setBit(CH_PORT, relayPin);
 }
 
+/*
+ * Tick
+ *
+ * This method controls the enable state of a timer based
+ * on a method call to the ChannelTimer object within.
+ * If the timer's duration has expiired, the Channel is disabled
+ * and the TimerEnabled flag is set to false.
+ */
 bool Channel::Tick() {
   bool Timer_Expired = false;
 
   if(Enabled && TimerEnabled) {
     Timer_Expired = t.Tick();
     if(Timer_Expired) {
-      Enabled = false;
-      setBit(CH_PORT, relayPin);
+      Disable();
       TimerEnabled = false;
     }
   }
@@ -46,10 +87,21 @@ bool Channel::Tick() {
   return Timer_Expired;
 }
 
+/*
+ * ReadCurrent
+ *
+ * This method simply returns the value of the ChannelReadings' Read method
+ */
 double Channel::ReadCurrent() {
   return reads.Read();
 }
 
+/*
+ * CalculateDCValues
+ *
+ * This method generates DC offsets used for AC current calculations through the
+ * ChannelReadings object.
+ */
 void Channel::CalculateDCValues() {
   reads.CalculateDCValues();
 }
