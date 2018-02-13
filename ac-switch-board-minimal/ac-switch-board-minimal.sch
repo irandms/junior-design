@@ -274,7 +274,7 @@ P 2050 3550
 F 0 "U1" H 1300 4800 50  0000 L BNN
 F 1 "ATMEGA328P-PU" H 2450 2150 50  0000 L BNN
 F 2 "Housings_DIP:DIP-28_W7.62mm_Socket" H 2050 3550 50  0001 C CIN
-F 3 "" H 2050 3550 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf" H 2050 3550 50  0001 C CNN
 	1    2050 3550
 	1    0    0    -1  
 $EndComp
@@ -296,7 +296,7 @@ P 9400 1850
 F 0 "Q1" H 9600 1925 50  0000 L CNN
 F 1 "2N7000" H 9600 1850 50  0000 L CNN
 F 2 "TO_SOT_Packages_THT:TO-92_Molded_Narrow" H 9600 1775 50  0001 L CIN
-F 3 "" H 9400 1850 50  0001 L CNN
+F 3 "https://www.digikey.com/product-detail/en/fairchild-on-semiconductor/2N7000/2N7000FS-ND/244278" H 9400 1850 50  0001 L CNN
 	1    9400 1850
 	1    0    0    -1  
 $EndComp
@@ -340,7 +340,7 @@ P 10550 1850
 F 0 "Q2" H 10750 1925 50  0000 L CNN
 F 1 "2N7000" H 10750 1850 50  0000 L CNN
 F 2 "TO_SOT_Packages_THT:TO-92_Molded_Narrow" H 10750 1775 50  0001 L CIN
-F 3 "" H 10550 1850 50  0001 L CNN
+F 3 "https://www.digikey.com/product-detail/en/fairchild-on-semiconductor/2N7000/2N7000FS-ND/244278" H 10550 1850 50  0001 L CNN
 	1    10550 1850
 	1    0    0    -1  
 $EndComp
@@ -730,7 +730,7 @@ P 5300 7150
 F 0 "J6" H 5300 7650 50  0000 C CNN
 F 1 "BLUEFRUIT_CONNECTOR" H 5300 6650 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x09_Pitch2.54mm" H 5300 7150 50  0001 C CNN
-F 3 "" H 5300 7150 50  0001 C CNN
+F 3 "https://www.adafruit.com/product/2633" H 5300 7150 50  0001 C CNN
 	1    5300 7150
 	-1   0    0    1   
 $EndComp
@@ -1808,4 +1808,50 @@ Text Label 950  7400 0    60   ~ 0
 SEGE
 Text Label 950  7500 0    60   ~ 0
 SEGD
+$Comp
+L R R13
+U 1 1 5A8284E6
+P 8200 1050
+F 0 "R13" V 8280 1050 50  0000 C CNN
+F 1 "220" V 8200 1050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 8130 1050 50  0001 C CNN
+F 3 "" H 8200 1050 50  0001 C CNN
+	1    8200 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D4
+U 1 1 5A82857F
+P 8200 1450
+F 0 "D4" H 8200 1550 50  0000 C CNN
+F 1 "LED" H 8200 1350 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8200 1450 50  0001 C CNN
+F 3 "" H 8200 1450 50  0001 C CNN
+	1    8200 1450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8200 1300 8200 1200
+$Comp
+L +5V #PWR051
+U 1 1 5A82872B
+P 8200 900
+F 0 "#PWR051" H 8200 750 50  0001 C CNN
+F 1 "+5V" H 8200 1040 50  0000 C CNN
+F 2 "" H 8200 900 50  0001 C CNN
+F 3 "" H 8200 900 50  0001 C CNN
+	1    8200 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR052
+U 1 1 5A8287C1
+P 8200 1600
+F 0 "#PWR052" H 8200 1350 50  0001 C CNN
+F 1 "GND" H 8200 1450 50  0000 C CNN
+F 2 "" H 8200 1600 50  0001 C CNN
+F 3 "" H 8200 1600 50  0001 C CNN
+	1    8200 1600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
