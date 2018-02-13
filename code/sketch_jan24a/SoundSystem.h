@@ -13,7 +13,7 @@ typedef struct {
 } Note;
 
 void playNote(Note note);
-void playNotes(uint8_t tone1, uint8_t tone2, uint8_t duration);
 void playBackgroundNote(Note note);
+void playSong(const Note *song, const uint8_t song_length);
 void SoundSystem_Enable();
 void SoundSystem_Disable();

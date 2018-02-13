@@ -23,7 +23,6 @@ bool ChannelTimer::Tick() {
     return !duration;
 }
 
-
 /*
  * GetDuration
  *
@@ -31,6 +30,22 @@ bool ChannelTimer::Tick() {
  */
 Time ChannelTimer::GetDuration() {
     return duration;
+}
+
+/*
+ * GetMinutesSeconds
+ * 
+ * This method returns an unsigned 16-bit integer in the following form:
+ * MMSS
+ * 
+ * The last two digits represent the seconds of the timer, the first two represent the minutes remaining.
+ *
+ */
+Time ChannelTimer::GetMinutesSeconds() {
+  uint16_t minutes = duration / 60;
+  uint16_t seconds = duration % 60;
+
+  return (minutes * 100) + seconds;
 }
 
 /*

@@ -116,6 +116,15 @@ void DisplaySystem::WriteDouble(double val, int display_num) {
     // End SPI
 }
 
+void DisplaySystem::TestMode() {
+  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+  digitalWrite(slave_select, LOW);
+  SPI.transfer(0x0F);
+  SPI.transfer(0x00); // Normal mode, not test (all segments lit).
+  digitalWrite(slave_select, HIGH);
+  SPI.endTransaction();
+}
+
 /*
  * ToggleColon
  *
@@ -126,8 +135,8 @@ void DisplaySystem::WriteDouble(double val, int display_num) {
  * and does not exert control over colon lights or any extra LEDs that are
  * present.
  */
-void DisplaySystem::ToggleColon(int colon_pin) {
-  digitalWrite(colon_pin, !digitalRead(colon_pin));
+void DisplaySystem::ToggleLED(int led_pin) {
+  digitalWrite(led_pin, !digitalRead(led_pin));
 }
 
 /*
@@ -141,11 +150,6 @@ void DisplaySystem::ToggleColon(int colon_pin) {
  * As per the datasheet, configuration registers 9, A, B, C, and F are written to.
  */
 void DisplaySystem::Initialize() {
-  // Set extra pins for output
-  pinMode(DISPLAY_COLON_0, OUTPUT);
-  pinMode(DISPLAY_COLON_1, OUTPUT);
-  pinMode(DISPLAY_EXTRA_0, OUTPUT);
-  pinMode(DISPLAY_EXTRA_1, OUTPUT); 
   // Begin SPI
   SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
   digitalWrite(slave_select, LOW);

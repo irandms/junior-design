@@ -1,11 +1,13 @@
 #include <avr/io.h>
+#include <Arduino.h>
+
 #include "Channel.h"
 #include "pinDefines.h"
 
 /*
- * SetPins
+ * AttachPins
  *
- * This function attaches a relay control pin, relayPin,
+ * This method attaches a relay control pin, relayPin,
  * and an ADC read pin, readPin, to a Channel object.
  * These two physical GPIO pins are used for relay control
  * and AC current sensing respectively.
@@ -13,11 +15,14 @@
  * NOTE: This function MUST be called immediately after instantiating
  * a Channel object, and before any other method calls!
  */
-void Channel::SetPins(int relayPin, int readPin) {
+void Channel::AttachPins(int relayPin, int readPin, int displayPin, int colonPin) {
     this->relayPin = relayPin;
+    this->displayPin = displayPin;
     reads.SetPin(readPin);
     setBit(CH_DDR, relayPin);
     setBit(CH_PORT, relayPin);
+    pinMode(displayPin, OUTPUT);
+    pinMode(colonPin, OUTPUT);
     overcurrentDetected = false;
 }
 
@@ -45,6 +50,15 @@ void Channel::DisableTimer() {
     TimerEnabled = false;
 }
 
+Time Channel::GetDurationSeconds() {
+  return t.GetDuration();
+}
+
+
+Time Channel::GetDuration() {
+  return t.GetMinutesSeconds();
+}
+
 /*
  * Enable
  *
@@ -53,6 +67,7 @@ void Channel::DisableTimer() {
 void Channel::Enable() {
     Enabled = true;
     clearBit(CH_PORT, relayPin);
+    digitalWrite(displayPin, LOW);
 }
 
 /*
@@ -63,6 +78,7 @@ void Channel::Enable() {
 void Channel::Disable() {
     Enabled = false;
     setBit(CH_PORT, relayPin);
+    digitalWrite(displayPin, HIGH);
 }
 
 /*

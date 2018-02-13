@@ -10,6 +10,7 @@ class DisplaySystem {
         void WriteAllDigits(int val);
         void WriteDouble(double val, int display_num);
         void AttachSlaveSelect(int pin);
-        void ToggleColon(int colon_pin);
+        void TestMode();
+        void ToggleLED(int led_pin);
 };
 

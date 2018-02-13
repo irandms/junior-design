@@ -19,16 +19,17 @@
 
 // DISPLAY SYSTEM
 #define DISPLAY_SS                    10
-#define DISPLAY_COLON_0               A0
-#define DISPLAY_COLON_1               A1
-#define DISPLAY_EXTRA_0               A2
-#define DISPLAY_EXTRA_1               8 
+#define CH0_COLON_PIN                 A0
+#define CH1_COLON_PIN                 A1
+#define CH0_DISP_PIN                  A2
+#define CH1_DISP_PIN                  8 
 
 // AC CHANNELS
 #define CH_DDR                        DDRD
 #define CH_PORT                       PORTD
 #define CH0_EN_PIN                    PD6
 #define CH1_EN_PIN                    PD7
+
 // A4, A5
 #define CH0_READ_PIN                  4
 #define CH1_READ_PIN                  5

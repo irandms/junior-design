@@ -23,12 +23,15 @@ class Channel {
         ChannelTimer t;             // ChannelTimer object representing the Enable/Disable timer
         ChannelReadings reads;      // ChannelReadings object holding data from AC current readings
         int relayPin;               // The digital I/O pin that controls the relay for this channel
+        int displayPin;             // The digital I/O pin that controls an LED to display channel state
         bool overcurrentDetected;   // If overcurrent has happened on this channel since boot
     public:
-        void SetPins(int relayPin, int readPin);
+        void AttachPins(int relayPin, int readPin, int displayPin, int colonPin);
         bool Tick();
         void EnableTimer(Time seconds);
         void DisableTimer();
+        Time GetDurationSeconds();
+        Time GetDuration();
         void Enable();
         void Disable();
         double ReadCurrent();

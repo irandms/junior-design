@@ -10,6 +10,7 @@ class ChannelTimer {
     public:
         ChannelTimer();
         Time GetDuration();
+        Time GetMinutesSeconds();
         bool Tick();
         void SetDuration(Time seconds);
 };

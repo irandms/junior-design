@@ -41,6 +41,3 @@ if __name__ == "__main__":
     out.write(makeDefines(BASEPITCH, OCTAVES))
     out.close()
 
-    
-
-
