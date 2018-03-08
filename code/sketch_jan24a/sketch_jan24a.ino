@@ -33,77 +33,53 @@ void setup() {
     // SPI for Bluetooth/Display
     Serial.begin(115200);
     SPI.usingInterrupt(255); // 255 for interrupts such as Timers (timer1)
-    Serial.println("setup start");
     SPI.begin();
 
     // Attach AC channel control and read pins
-    Serial.println("Attaching channel control and read pins");
     channels[0].AttachPins(CH0_EN_PIN, CH0_READ_PIN, CH0_DISP_PIN, CH0_COLON_PIN);
     channels[1].AttachPins(CH1_EN_PIN, CH1_READ_PIN, CH1_DISP_PIN, CH1_COLON_PIN);
     
     // Attach display slave select
-    Serial.println("Attaching display SS");
     disp.AttachSlaveSelect(DISPLAY_SS);
     
     // Generate initial DC readings for both AC channels
-    Serial.println("Calculating channel DC offsets");
     channels[0].CalculateDCValues();
     channels[1].CalculateDCValues();
     
     // Init display system
-    Serial.println("Initializing display");
     disp.Initialize();
 
     
-    Serial.println("Enable 1 second timer");
     // Initialize 1 second ISR for timer control
     Timer1_Initialize();
 
     // Attach a 10 second timer to CH0,
     // Attach a 1 hour timer to CH1, for testing.
-    Serial.println("Attaching timers to each channel");
     channels[0].EnableTimer(15);
     channels[1].EnableTimer(360);
 
-    Serial.println(TCCR0A, BIN);
-    Serial.println(TCCR0B, BIN);
-    Serial.println(TCCR2A, BIN);
-    Serial.println(TCCR2B, BIN);
     // Play bootup music
-    Serial.println("Playing music");
     playSong(song, song_length);
-    Serial.println(TCCR0A, BIN);
-    Serial.println(TCCR0B, BIN);
-    Serial.println(TCCR2A, BIN);
-    Serial.println(TCCR2B, BIN);
     // Connect to our Bluefruit Friend
-    Serial.println("Connecting to bluetooth coprocessor");
     if( !ble.begin(VERBOSE_MODE, false) )
     {
-      Serial.println("No BLE found?");
       while(1) {
         // Hang here if we can't find our friend
-        Serial.println("No BLE found?");
+        Serial.println("No BLE");
       }
     }
-    Serial.println("Connected to Bluetooth");
     /* Disable command echo from Bluefruit */
     ble.echo(false);
-    Serial.println("info:");
     /* Print Bluefruit information */
-    ble.info();
     ble.verbose(false); // BLE gets annoying over UART past here
     bt_status = ble.isConnected();
 
-    Serial.println("pgm start");
     // Enable interrupts for sound system/1 second timer
     sei();
 }
 
 /*
  * Timer1 ISR configured to fire every 1 Hz.
- * Take care of toggling the extra parts of the display,
- * just as debug for now, to ensure that we can.
  *
  * Run the Tick method on every AC Channel's timer,
  * and check if their timer has expired.
@@ -145,16 +121,16 @@ ISR (TIMER2_COMPA_vect)
 // Unused; all code is in Setup with an event loop there to reduce globals when possible.
 void loop() {
     // Read AC current for both channels, using a calibration metric for RMS -> Amperes calibration value
-    double rms0 = channels[0].ReadCurrent() / AC0_CALIB;
-    double rms1 = channels[1].ReadCurrent() / AC1_CALIB;
+    for(uint8_t i = 0; i < NUM_CHANNELS; i++) {
+        double rms = channels[i].ReadCurrent();
 
-    // TODO: actual overcurrent protection things
-    if(rms0 > 4.5 || rms1 > 4.5) {
-        // Generate really annoying sound until the end of time
-        SoundSystem_Enable();
-        playBackgroundNote(song[2]);
-        // Place display system in test mode
-        disp.TestMode();
+        if(rms > 4.0) {
+            // make really annoying sound until the end of time
+            SoundSystem_Enable();
+            playBackgroundNote(song[2]);
+            // Place display system in test mode
+            disp.TestMode();
+        }
     }
 
     // Poll the BLE module for new packets
@@ -180,17 +156,13 @@ void loop() {
         int timer_reads[MAX_TIMER_READS];           // Read at most 4 more characters after type
         int chan_num;
         if(type == 'R') {
-            ble.print(channels[0].GetStatus()); ble.print(" ");
-            ble.print(channels[0].GetTimerStatus()); ble.print(" ");
-            ble.print(channels[0].GetDurationSeconds()); ble.print(" ");
-            ble.print(channels[0].GetCurrentReading() / AC0_CALIB); ble.print(" ");
-            ble.print(channels[0].GetOvercurrentDetected()); ble.print(" ");
-
-            ble.print(channels[1].GetStatus()); ble.print(" ");
-            ble.print(channels[1].GetTimerStatus()); ble.print(" ");
-            ble.print(channels[1].GetDurationSeconds()); ble.print(" ");
-            ble.print(channels[1].GetCurrentReading() / AC1_CALIB); ble.print(" ");
-            ble.print(channels[1].GetOvercurrentDetected()); ble.print(" X");
+            for(uint8_t i = 0; i < NUM_CHANNELS; i++) {
+                ble.print(channels[i].GetStatus()); ble.print(" ");
+                ble.print(channels[i].GetTimerStatus()); ble.print(" ");
+                ble.print(channels[i].GetDurationSeconds()); ble.print(" ");
+                ble.print(channels[i].GetCurrentReading() / AC0_CALIB); ble.print(" ");
+                ble.print(channels[i].GetOvercurrentDetected()); ble.print(" ");
+            }
         }
         else {
             // Since we receive ASCII, a '0' character is integer value 48
