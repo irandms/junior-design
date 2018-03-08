@@ -1,2 +1,6 @@
 *.zip
+build-uno/
 grb/
+*.hex
+*.elf
+*.o
