@@ -1,0 +1,9 @@
+Revision 1.1
+
+- Fixed error with PH pin not being connected to all the pads it should (to
+the diode D2 and inductor L1
+- Fixed error with the MISO and MOSI pins being swapped on the programmer head
+
+unfinished:
+- add cap to aref
+- add reset btn

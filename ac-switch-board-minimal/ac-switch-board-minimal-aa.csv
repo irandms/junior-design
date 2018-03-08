@@ -1,0 +1,56 @@
+Source:,/home/irandms/ownCloud/school/JuniorDesign/junior-design/ac-switch-board-minimal/ac-switch-board-minimal.sch,,,,,,,
+Date:,Sun 18 Feb 2018 08:36:25 PM PST,,,,,,,
+Tool:,Eeschema 4.0.7,,,,,,,
+Generator:,/usr/lib64/kicad/plugins/bom_csv_grouped_by_value.py,,,,,,,
+Component Count:,66,,,,,,,
+,,,,,,,,
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,DigiKey,MPN
+1,2,"C1, C10",10uF,device:CP1,Capacitors_SMD:CP_Elec_4x4.5,https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEE-1VA100WR/PCE3948CT-ND/766324,PCE3948CT-ND,EEE-1VA100WR
+2,2,"C2, C4",20pF,device:C,Capacitors_SMD:C_0603,https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10C200JB8NCNC/1276-2220-1-ND/3890306,1276-2220-1-ND,CL10C200JB8NCNC
+3,4,"C3, C8, C15, C16",100nF,device:C,Capacitors_SMD:C_1206_HandSoldering,https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524,399-1249-1-ND,C1206C104K5RAC7867
+4,2,"C5, C6",6800uF,device:CP1,Capacitors_THT:CP_Radial_D18.0mm_P7.50mm,https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEU-HD1V682/P15173-ND/2796849,P15173-ND, EEU-HD1V682 
+5,2,"C7, C14",10uF,device:C,Capacitors_SMD:C_1206_HandSoldering,https://www.digikey.com/product-detail/en/kemet/C1206C106M3PACTU/399-8153-1-ND/3471876,399-8153-1-ND,C1206C106M3PACTU
+6,1,C9,0.1uF,device:C,Capacitors_SMD:C_1206_HandSoldering,https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524,399-1249-1-ND,C1206C104K5RAC7867
+7,1,C11,0.015uf,device:C,Capacitors_SMD:C_0805_HandSoldering,https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM2195C1H153JA01D/490-1643-1-ND/587510,490-1643-1-ND ,GRM2195C1H153JA01D
+8,1,C12,680pF,device:C,Capacitors_SMD:C_0805_HandSoldering,https://www.digikey.com/product-detail/en/yageo/CC0805JRNPO9BN681/311-1121-1-ND/303031,311-1121-1-ND,CC0805JRNPO9BN681
+9,1,C13,47pF,device:C,Capacitors_SMD:C_0805_HandSoldering,https://www.digikey.com/product-detail/en/yageo/CC0805JRNPO9BN470/311-1107-1-ND/303017,311-1107-1-ND,CC0805JRNPO9BN470
+10,2,"C17, C18",1nF,device:C,Capacitors_SMD:C_0805_HandSoldering,https://www.digikey.com/product-detail/en/kemet/C0805C102K5RACTU/399-1147-1-ND/411422,399-1147-1-ND,C0805C102K5RACTU 
+11,1,CON1,AVR-ISP-6,atmel:AVR-ISP-6,Connectors:IDC_Header_Straight_6pins,,,
+12,1,D1,110B2 (W01G),device:D_Bridge_+A-A,Diodes_THT:Diode_Bridge_Round_D8.9mm,https://www.digikey.com/product-detail/en/vishay-semiconductor-diodes-division/W01G-E4-51/W01G-E4-51GI-ND/76538,W01G-E4/51GI-ND,W01G-E4/51 
+13,1,D2,B220A,device:D_Schottky,footprints:D_SMA,https://www.digikey.com/product-detail/en/diodes-incorporated/B220A-13-F/B220A-FDICT-ND/751528,B220A-FDICT-ND,B220A-13-F
+14,1,D3,LED,device:LED,LEDs:LED_0603_HandSoldering,https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12V1WT86/SML-D12V1WT86CT-ND/5843857,SML-D12V1WT86CT-ND,SML-D12V1WT86
+15,1,D4,LED,device:LED,Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm,,,
+16,2,"F1, F2",Fuse,device:Fuse,Fuse_Holders_and_Fuses:Fuseholder5x20_horiz_SemiClosed_Casing10x25mm,,,
+17,1,J1,AC_IN,conn:Screw_Terminal_01x03,Connectors:AK300-3,,,
+18,1,J2,DIGITS,conn:Conn_01x08,Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm,,,
+19,1,J3,SEGMENTS0,conn:Conn_01x08,Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm,,,
+20,1,J4,DISP0_EXTRAS,conn:Conn_01x04,Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm,,,
+21,1,J5,DISP1_EXTRAS,conn:Conn_01x04,Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm,,,
+22,1,J6,BLUEFRUIT_CONNECTOR,conn:Conn_01x09_Female,Pin_Headers:Pin_Header_Straight_1x09_Pitch2.54mm,https://www.adafruit.com/product/2633,,
+23,1,J7,RELAY_CONN,conn:Conn_01x04,Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm,,,
+24,1,J8,CH0_BACKUP_ACS,conn:Conn_01x03,Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm,,,
+25,1,J9,CH1_BACKUP_ACS,conn:Conn_01x03,Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm,,,
+26,1,J10,BACKUP_VOUT,conn:Conn_01x02,Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm,,,
+27,1,J11,BACKUP_VIN,conn:Conn_01x02,Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm,,,
+28,1,J12,CH0_AC,conn:Screw_Terminal_01x03,Connectors:AK300-3,,,
+29,1,J13,CH1_AC,conn:Screw_Terminal_01x03,Connectors:AK300-3,,,
+30,1,J14,UART,conn:Conn_01x03,Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm,,,
+31,1,J15,Conn_01x01,conn:Conn_01x01,Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm,,,
+32,1,J16,SEGMENTS1,conn:Conn_01x08,Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm,,,
+33,1,J17,XTRA_GND,conn:Conn_01x03,Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm,,,
+34,1,L1,3.3uH,device:L,footprints:L_Sumida_4.9x4.9mm_diag,https://www.digikey.com/product-detail/en/sumida-america-components-inc/CDRH4D28CLDNP-3R3PC/308-2037-1-ND/3946734,308-2037-1-ND,CDRH4D28CLDNP-3R3PC
+35,2,"LS1, LS2",Speaker,device:Speaker,Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm,,,
+36,2,"Q1, Q2",2N7000,transistors:2N7000,TO_SOT_Packages_THT:TO-92_Molded_Narrow,https://www.digikey.com/product-detail/en/fairchild-on-semiconductor/2N7000/2N7000FS-ND/244278,,
+37,5,"R1, R2, R6, R10, R12",10k,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971,P10KDACT-ND,ERA-6AEB103V
+38,1,R3,150k,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/susumu/RR1220P-154-D/RR12P150KDCT-ND/432882,RR12P150KDCT-ND,RR1220P-154-D
+39,1,R4,48.7k,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0805FR-0748K7L/311-48.7KCRCT-ND/730928,311-48.7KCRCT-ND,RC0805FR-0748K7L
+40,1,R5,17.4k,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0805FR-0717K4L/311-17.4KCRCT-ND/730583,311-17.4KCRCT-ND, RC0805FR-0717K4L 
+41,1,R7,1.87k,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0805FR-071K87L/311-1.87KCRCT-ND/730473,311-1.87KCRCT-ND, RC0805FR-071K87L
+42,1,R8,1.37k,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0805FR-071K37L/311-1.37KCRCT-ND/730431,311-1.37KCRCT-ND,RC0805FR-071K37L
+43,2,"R9, R11",100,device:R,Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P5.08mm_Vertical,,,
+44,1,R13,220,device:R,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ221/RHM220KCT-ND/1762990,RHM220KCT-ND,ESR10EZPJ221
+45,1,U1,ATMEGA328P-PU,atmel:ATMEGA328P-PU,Housings_DIP:DIP-28_W7.62mm_Socket,http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf,,
+46,1,U2,MAX7221,ECE34xCompLib:MAX7221,Housings_DIP:DIP-24_W7.62mm_Socket,https://datasheets.maximintegrated.com/en/ds/MAX7219-MAX7221.pdf,,
+47,1,U3,TPS54232,ECE34xCompLib:TPS54232,footprints:SOIC-8-N,https://www.digikey.com/product-detail/en/texas-instruments/TPS54232DR/296-39414-1-ND/5143365,296-39414-1-ND,TPS54232DR
+48,2,"U4, U5",ACS723,ECE34xCompLib:ACS723,footprints:SOIC-8-N,https://www.digikey.com/product-detail/en/allegro-microsystems-llc/ACS723LLCTR-05AB-T/620-1641-1-ND/4948877,620-1641-1-ND,ACS723LLCTR-05AB-T
+49,1,Y1,16MHz,device:Crystal,Crystals:Crystal_HC49-4H_Vertical,,,

@@ -54,7 +54,9 @@ P 1350 1100
 F 0 "D1" H 1400 1375 50  0000 L CNN
 F 1 "110B2 (W01G)" H 1400 1300 50  0000 L CNN
 F 2 "Diodes_THT:Diode_Bridge_Round_D8.9mm" H 1350 1100 50  0001 C CNN
-F 3 "https://www.vishay.com/docs/88769/woo5g.pdf" H 1350 1100 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/vishay-semiconductor-diodes-division/W01G-E4-51/W01G-E4-51GI-ND/76538" H 1350 1100 50  0001 C CNN
+F 4 "W01G-E4/51 " H 1350 1100 60  0001 C CNN "MPN"
+F 5 "W01G-E4/51GI-ND" H 1350 1100 60  0001 C CNN "DigiKey"
 	1    1350 1100
 	1    0    0    -1  
 $EndComp
@@ -66,6 +68,8 @@ F 0 "C5" H 1725 1450 50  0000 L CNN
 F 1 "6800uF" H 1725 1250 50  0000 L CNN
 F 2 "Capacitors_THT:CP_Radial_D18.0mm_P7.50mm" H 1700 1350 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEU-HD1V682/P15173-ND/2796849" H 1700 1350 50  0001 C CNN
+F 4 " EEU-HD1V682 " H 1700 1350 60  0001 C CNN "MPN"
+F 5 "P15173-ND" H 1700 1350 60  0001 C CNN "DigiKey"
 	1    1700 1350
 	1    0    0    -1  
 $EndComp
@@ -88,6 +92,8 @@ F 0 "C7" H 3525 1400 50  0000 L CNN
 F 1 "10uF" H 3525 1200 50  0000 L CNN
 F 2 "Capacitors_SMD:C_1206_HandSoldering" H 3538 1150 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C106M3PACTU/399-8153-1-ND/3471876" H 3500 1300 50  0001 C CNN
+F 4 "C1206C106M3PACTU" H 3500 1300 60  0001 C CNN "MPN"
+F 5 "399-8153-1-ND" H 3500 1300 60  0001 C CNN "DigiKey"
 	1    3500 1300
 	1    0    0    -1  
 $EndComp
@@ -98,7 +104,9 @@ P 3850 1300
 F 0 "R3" V 3930 1300 50  0000 C CNN
 F 1 "150k" V 3850 1300 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 3780 1300 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB154V/P150KDACT-ND/1465999" H 3850 1300 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/susumu/RR1220P-154-D/RR12P150KDCT-ND/432882" H 3850 1300 50  0001 C CNN
+F 4 "RR1220P-154-D" V 3850 1300 60  0001 C CNN "MPN"
+F 5 "RR12P150KDCT-ND" V 3850 1300 60  0001 C CNN "DigiKey"
 	1    3850 1300
 	1    0    0    -1  
 $EndComp
@@ -109,7 +117,9 @@ P 3850 1700
 F 0 "R4" V 3930 1700 50  0000 C CNN
 F 1 "48.7k" V 3850 1700 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 3780 1700 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB4872V/P48.7KDACT-ND/3075157" H 3850 1700 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/yageo/RC0805FR-0748K7L/311-48.7KCRCT-ND/730928" H 3850 1700 50  0001 C CNN
+F 4 "RC0805FR-0748K7L" V 3850 1700 60  0001 C CNN "MPN"
+F 5 "311-48.7KCRCT-ND" V 3850 1700 60  0001 C CNN "DigiKey"
 	1    3850 1700
 	1    0    0    -1  
 $EndComp
@@ -120,7 +130,9 @@ P 4800 1200
 F 0 "U3" H 4800 900 60  0000 C CNN
 F 1 "TPS54232" H 4800 1500 60  0000 C CNN
 F 2 "footprints:SOIC-8-N" H 4800 1500 60  0001 C CNN
-F 3 "" H 4800 1500 60  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/texas-instruments/TPS54232DR/296-39414-1-ND/5143365" H 4800 1500 60  0001 C CNN
+F 4 "TPS54232DR" H 4800 1200 60  0001 C CNN "MPN"
+F 5 "296-39414-1-ND" H 4800 1200 60  0001 C CNN "DigiKey"
 	1    4800 1200
 	1    0    0    -1  
 $EndComp
@@ -132,6 +144,8 @@ F 0 "C11" H 4325 1800 50  0000 L CNN
 F 1 "0.015uf" H 4325 1600 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4338 1550 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM2195C1H153JA01D/490-1643-1-ND/587510" H 4300 1700 50  0001 C CNN
+F 4 "GRM2195C1H153JA01D" H 4300 1700 60  0001 C CNN "MPN"
+F 5 "490-1643-1-ND " H 4300 1700 60  0001 C CNN "DigiKey"
 	1    4300 1700
 	1    0    0    -1  
 $EndComp
@@ -143,6 +157,8 @@ F 0 "C12" H 5525 1500 50  0000 L CNN
 F 1 "680pF" H 5525 1300 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5538 1250 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/CC0805JRNPO9BN681/311-1121-1-ND/303031" H 5500 1400 50  0001 C CNN
+F 4 "CC0805JRNPO9BN681" H 5500 1400 60  0001 C CNN "MPN"
+F 5 "311-1121-1-ND" H 5500 1400 60  0001 C CNN "DigiKey"
 	1    5500 1400
 	1    0    0    -1  
 $EndComp
@@ -154,6 +170,8 @@ F 0 "C13" H 5825 1500 50  0000 L CNN
 F 1 "47pF" H 5825 1300 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5838 1250 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/CC0805JRNPO9BN470/311-1107-1-ND/303017" H 5800 1400 50  0001 C CNN
+F 4 "CC0805JRNPO9BN470" H 5800 1400 60  0001 C CNN "MPN"
+F 5 "311-1107-1-ND" H 5800 1400 60  0001 C CNN "DigiKey"
 	1    5800 1400
 	1    0    0    -1  
 $EndComp
@@ -165,6 +183,8 @@ F 0 "R5" V 5730 1650 50  0000 C CNN
 F 1 "17.4k" V 5650 1650 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 5580 1650 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/RC0805FR-0717K4L/311-17.4KCRCT-ND/730583" H 5650 1650 50  0001 C CNN
+F 4 " RC0805FR-0717K4L " V 5650 1650 60  0001 C CNN "MPN"
+F 5 "311-17.4KCRCT-ND" V 5650 1650 60  0001 C CNN "DigiKey"
 	1    5650 1650
 	0    1    1    0   
 $EndComp
@@ -175,7 +195,9 @@ P 5500 900
 F 0 "D2" H 5500 1000 50  0000 C CNN
 F 1 "B220A" H 5500 800 50  0000 C CNN
 F 2 "footprints:D_SMA" H 5500 900 50  0001 C CNN
-F 3 "" H 5500 900 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/B220A-13-F/B220A-FDICT-ND/751528" H 5500 900 50  0001 C CNN
+F 4 "B220A-13-F" H 5500 900 60  0001 C CNN "MPN"
+F 5 "B220A-FDICT-ND" H 5500 900 60  0001 C CNN "DigiKey"
 	1    5500 900 
 	0    1    1    0   
 $EndComp
@@ -186,7 +208,9 @@ P 6200 850
 F 0 "C14" H 6225 950 50  0000 L CNN
 F 1 "10uF" H 6225 750 50  0000 L CNN
 F 2 "Capacitors_SMD:C_1206_HandSoldering" H 6238 700 50  0001 C CNN
-F 3 "" H 6200 850 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL31B106MOHNNNE/1276-6641-1-ND/5961500" H 6200 850 50  0001 C CNN
+F 4 "CL31B106MOHNNNE" H 6200 850 60  0001 C CNN "MPN"
+F 5 "1276-6641-1-ND" H 6200 850 60  0001 C CNN "DigiKey"
 	1    6200 850 
 	1    0    0    -1  
 $EndComp
@@ -197,7 +221,9 @@ P 5850 700
 F 0 "L1" V 5800 700 50  0000 C CNN
 F 1 "3.3uH" V 5925 700 50  0000 C CNN
 F 2 "footprints:L_Sumida_4.9x4.9mm_diag" H 5850 700 50  0001 C CNN
-F 3 "" H 5850 700 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/sumida-america-components-inc/CDRH4D28CLDNP-3R3PC/308-2037-1-ND/3946734" H 5850 700 50  0001 C CNN
+F 4 "CDRH4D28CLDNP-3R3PC" V 5850 700 60  0001 C CNN "MPN"
+F 5 "308-2037-1-ND" V 5850 700 60  0001 C CNN "DigiKey"
 	1    5850 700 
 	0    -1   -1   0   
 $EndComp
@@ -209,6 +235,8 @@ F 0 "R6" V 6530 850 50  0000 C CNN
 F 1 "10k" V 6450 850 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 6380 850 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971" H 6450 850 50  0001 C CNN
+F 4 "ERA-6AEB103V" V 6450 850 60  0001 C CNN "MPN"
+F 5 "P10KDACT-ND" V 6450 850 60  0001 C CNN "DigiKey"
 	1    6450 850 
 	1    0    0    -1  
 $EndComp
@@ -220,6 +248,8 @@ F 0 "R7" V 6530 1350 50  0000 C CNN
 F 1 "1.87k" V 6450 1350 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 6380 1350 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/RC0805FR-071K87L/311-1.87KCRCT-ND/730473" H 6450 1350 50  0001 C CNN
+F 4 " RC0805FR-071K87L" V 6450 1350 60  0001 C CNN "MPN"
+F 5 "311-1.87KCRCT-ND" V 6450 1350 60  0001 C CNN "DigiKey"
 	1    6450 1350
 	1    0    0    -1  
 $EndComp
@@ -231,6 +261,8 @@ F 0 "C9" H 4225 950 50  0000 L CNN
 F 1 "0.1uF" H 4225 750 50  0000 L CNN
 F 2 "Capacitors_SMD:C_1206_HandSoldering" H 4238 700 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524" H 4200 850 50  0001 C CNN
+F 4 "C1206C104K5RAC7867" H 4200 850 60  0001 C CNN "MPN"
+F 5 "399-1249-1-ND" H 4200 850 60  0001 C CNN "DigiKey"
 	1    4200 850 
 	1    0    0    -1  
 $EndComp
@@ -286,6 +318,8 @@ F 0 "C3" H 925 2700 50  0000 L CNN
 F 1 "100nF" H 925 2500 50  0000 L CNN
 F 2 "Capacitors_SMD:C_1206_HandSoldering" H 938 2450 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524" H 900 2600 50  0001 C CNN
+F 4 "C1206C104K5RAC7867" H 900 2600 60  0001 C CNN "MPN"
+F 5 "399-1249-1-ND" H 900 2600 60  0001 C CNN "DigiKey"
 	1    900  2600
 	1    0    0    -1  
 $EndComp
@@ -319,6 +353,8 @@ F 0 "R10" V 9180 2000 50  0000 C CNN
 F 1 "10k" V 9100 2000 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 9030 2000 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971" H 9100 2000 50  0001 C CNN
+F 4 "ERA-6AEB103V" V 9100 2000 60  0001 C CNN "MPN"
+F 5 "P10KDACT-ND" V 9100 2000 60  0001 C CNN "DigiKey"
 	1    9100 2000
 	1    0    0    -1  
 $EndComp
@@ -363,6 +399,8 @@ F 0 "R12" V 10330 2000 50  0000 C CNN
 F 1 "10k" V 10250 2000 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 10180 2000 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971" H 10250 2000 50  0001 C CNN
+F 4 " ERA-6AEB103V " V 10250 2000 60  0001 C CNN "MPN"
+F 5 "P10KDACT-ND" V 10250 2000 60  0001 C CNN "DigiKey"
 	1    10250 2000
 	1    0    0    -1  
 $EndComp
@@ -398,7 +436,9 @@ P 9700 3400
 F 0 "U4" H 9700 3700 60  0000 C CNN
 F 1 "ACS723" H 9700 3200 60  0000 C CNN
 F 2 "footprints:SOIC-8-N" H 9700 3700 60  0001 C CNN
-F 3 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjsy5CguYzZAhVpz1QKHUCiAmgQFggpMAA&url=http%3A%2F%2Fwww.allegromicro.com%2F~%2Fmedia%2FFiles%2FDatasheets%2FACS723-Datasheet.ashx&usg=AOvVaw3Cv7YYQtl0VTGxX2HRSiMM" H 9700 3700 60  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/allegro-microsystems-llc/ACS723LLCTR-05AB-T/620-1641-1-ND/4948877" H 9700 3700 60  0001 C CNN
+F 4 "ACS723LLCTR-05AB-T" H 9700 3400 60  0001 C CNN "MPN"
+F 5 "620-1641-1-ND" H 9700 3400 60  0001 C CNN "DigiKey"
 	1    9700 3400
 	1    0    0    -1  
 $EndComp
@@ -410,6 +450,8 @@ F 0 "C17" H 10425 3650 50  0000 L CNN
 F 1 "1nF" H 10425 3450 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 10438 3400 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C0805C102K5RACTU/399-1147-1-ND/411422" H 10400 3550 50  0001 C CNN
+F 4 "C0805C102K5RACTU " H 10400 3550 60  0001 C CNN "MPN"
+F 5 "399-1147-1-ND" H 10400 3550 60  0001 C CNN "DigiKey"
 	1    10400 3550
 	1    0    0    -1  
 $EndComp
@@ -432,6 +474,8 @@ F 0 "C15" H 10325 3050 50  0000 L CNN
 F 1 "100nF" H 10325 2850 50  0000 L CNN
 F 2 "Capacitors_SMD:C_1206_HandSoldering" H 10338 2800 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524" H 10300 2950 50  0001 C CNN
+F 4 "C1206C104K5RAC7867" H 10300 2950 60  0001 C CNN "MPN"
+F 5 "399-1249-1-ND" H 10300 2950 60  0001 C CNN "DigiKey"
 	1    10300 2950
 	1    0    0    -1  
 $EndComp
@@ -454,6 +498,8 @@ F 0 "U5" H 9700 5650 60  0000 C CNN
 F 1 "ACS723" H 9700 5150 60  0000 C CNN
 F 2 "footprints:SOIC-8-N" H 9700 5650 60  0001 C CNN
 F 3 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjsy5CguYzZAhVpz1QKHUCiAmgQFggpMAA&url=http%3A%2F%2Fwww.allegromicro.com%2F~%2Fmedia%2FFiles%2FDatasheets%2FACS723-Datasheet.ashx&usg=AOvVaw3Cv7YYQtl0VTGxX2HRSiMM" H 9700 5650 60  0001 C CNN
+F 4 "ACS723LLCTR-05AB-T" H 9700 5350 60  0001 C CNN "MPN"
+F 5 "620-1641-1-ND" H 9700 5350 60  0001 C CNN "DigiKey"
 	1    9700 5350
 	1    0    0    -1  
 $EndComp
@@ -465,6 +511,8 @@ F 0 "C18" H 10425 5600 50  0000 L CNN
 F 1 "1nF" H 10425 5400 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 10438 5350 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C0805C102K5RACTU/399-1147-1-ND/411422" H 10400 5500 50  0001 C CNN
+F 4 "C0805C102K5RACTU" H 10400 5500 60  0001 C CNN "MPN"
+F 5 "399-1147-1-ND" H 10400 5500 60  0001 C CNN "DigiKey"
 	1    10400 5500
 	1    0    0    -1  
 $EndComp
@@ -487,6 +535,8 @@ F 0 "C16" H 10325 5000 50  0000 L CNN
 F 1 "100nF" H 10325 4800 50  0000 L CNN
 F 2 "Capacitors_SMD:C_1206_HandSoldering" H 10338 4750 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524" H 10300 4900 50  0001 C CNN
+F 4 "C1206C104K5RAC7867" H 10300 4900 60  0001 C CNN "MPN"
+F 5 "399-1249-1-ND" H 10300 4900 60  0001 C CNN "DigiKey"
 	1    10300 4900
 	1    0    0    -1  
 $EndComp
@@ -520,6 +570,8 @@ F 0 "C2" H 725 4150 50  0000 L CNN
 F 1 "20pF" H 725 3950 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603" H 738 3900 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10C200JB8NCNC/1276-2220-1-ND/3890306" H 700 4050 50  0001 C CNN
+F 4 "CL10C200JB8NCNC" H 700 4050 60  0001 C CNN "MPN"
+F 5 "1276-2220-1-ND" H 700 4050 60  0001 C CNN "DigiKey"
 	1    700  4050
 	1    0    0    -1  
 $EndComp
@@ -605,39 +657,6 @@ SEGA
 Text Label 3500 7500 0    60   ~ 0
 SCK
 $Comp
-L R R2
-U 1 1 5A76CA2E
-P 3950 7000
-F 0 "R2" V 4030 7000 50  0000 C CNN
-F 1 "10k" V 3950 7000 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3880 7000 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971" H 3950 7000 50  0001 C CNN
-	1    3950 7000
-	0    1    1    0   
-$EndComp
-$Comp
-L C C8
-U 1 1 5A76CD80
-P 4250 7050
-F 0 "C8" H 4275 7150 50  0000 L CNN
-F 1 "100nF" H 4275 6950 50  0000 L CNN
-F 2 "Capacitors_SMD:C_1206_HandSoldering" H 4288 6900 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524" H 4250 7050 50  0001 C CNN
-	1    4250 7050
-	1    0    0    -1  
-$EndComp
-$Comp
-L CP1 C10
-U 1 1 5A76CDEF
-P 4550 7050
-F 0 "C10" H 4575 7150 50  0000 L CNN
-F 1 "10uF" H 4575 6950 50  0000 L CNN
-F 2 "Capacitors_SMD:CP_Elec_4x4.5" H 4550 7050 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEE-1VA100WR/PCE3948CT-ND/766324" H 4550 7050 50  0001 C CNN
-	1    4550 7050
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR08
 U 1 1 5A76CFB7
 P 4400 7200
@@ -706,17 +725,6 @@ Text Label 950  6350 0    60   ~ 0
 SEGE
 Text Label 950  6450 0    60   ~ 0
 SEGD
-$Comp
-L CP1 C6
-U 1 1 5A792AB6
-P 2100 1350
-F 0 "C6" H 2125 1450 50  0000 L CNN
-F 1 "6800uF" H 2125 1250 50  0000 L CNN
-F 2 "Capacitors_THT:CP_Radial_D18.0mm_P7.50mm" H 2100 1350 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEU-HD1V682/P15173-ND/2796849" H 2100 1350 50  0001 C CNN
-	1    2100 1350
-	1    0    0    -1  
-$EndComp
 Text Notes 7350 7500 0    60   ~ 0
 Bluetooth Controlled AC Switch
 Text Notes 8150 7650 0    60   ~ 0
@@ -848,6 +856,8 @@ F 0 "R1" V 2230 5300 50  0000 C CNN
 F 1 "10k" V 2150 5300 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 2080 5300 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971" H 2150 5300 50  0001 C CNN
+F 4 "ERA-6AEB103V" V 2150 5300 60  0001 C CNN "MPN"
+F 5 "P10KDACT-ND" V 2150 5300 60  0001 C CNN "DigiKey"
 	1    2150 5300
 	0    -1   -1   0   
 $EndComp
@@ -1150,6 +1160,8 @@ F 0 "R8" V 6880 850 50  0000 C CNN
 F 1 "1.37k" V 6800 850 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 6730 850 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/RC0805FR-071K37L/311-1.37KCRCT-ND/730431" H 6800 850 50  0001 C CNN
+F 4 "RC0805FR-071K37L" V 6800 850 60  0001 C CNN "MPN"
+F 5 "311-1.37KCRCT-ND" V 6800 850 60  0001 C CNN "DigiKey"
 	1    6800 850 
 	1    0    0    -1  
 $EndComp
@@ -1161,7 +1173,8 @@ F 0 "D3" H 6800 1400 50  0000 C CNN
 F 1 "LED" H 6800 1200 50  0000 C CNN
 F 2 "LEDs:LED_0603_HandSoldering" H 6800 1300 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12V1WT86/SML-D12V1WT86CT-ND/5843857" H 6800 1300 50  0001 C CNN
-F 4 "SML-D12V1WT86" H 6800 1300 60  0001 C CNN "DigiKey"
+F 4 "SML-D12V1WT86" H 6800 1300 60  0001 C CNN "MPN"
+F 5 "SML-D12V1WT86CT-ND" H 6800 1300 60  0001 C CNN "DigiKey"
 	1    6800 1300
 	0    -1   -1   0   
 $EndComp
@@ -1184,6 +1197,8 @@ F 0 "C1" H 675 2700 50  0000 L CNN
 F 1 "10uF" H 675 2500 50  0000 L CNN
 F 2 "Capacitors_SMD:CP_Elec_4x4.5" H 650 2600 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEE-1VA100WR/PCE3948CT-ND/766324" H 650 2600 50  0001 C CNN
+F 4 "EEE-1VA100WR" H 650 2600 60  0001 C CNN "MPN"
+F 5 "PCE3948CT-ND" H 650 2600 60  0001 C CNN "DigiKey"
 	1    650  2600
 	1    0    0    -1  
 $EndComp
@@ -1383,6 +1398,189 @@ F 3 "" H 9000 3200 50  0001 C CNN
 	1    9000 3200
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Fuse F2
+U 1 1 5A79D633
+P 9000 5150
+F 0 "F2" V 9080 5150 50  0000 C CNN
+F 1 "Fuse" V 8925 5150 50  0000 C CNN
+F 2 "Fuse_Holders_and_Fuses:Fuseholder5x20_horiz_SemiClosed_Casing10x25mm" V 8930 5150 50  0001 C CNN
+F 3 "" H 9000 5150 50  0001 C CNN
+	1    9000 5150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Screw_Terminal_01x03 J12
+U 1 1 5A79EE39
+P 8550 3300
+F 0 "J12" H 8550 3500 50  0000 C CNN
+F 1 "CH0_AC" H 8550 3100 50  0000 C CNN
+F 2 "Connectors:AK300-3" H 8550 3300 50  0001 C CNN
+F 3 "" H 8550 3300 50  0001 C CNN
+	1    8550 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Screw_Terminal_01x03 J13
+U 1 1 5A79F62D
+P 8550 5250
+F 0 "J13" H 8550 5450 50  0000 C CNN
+F 1 "CH1_AC" H 8550 5050 50  0000 C CNN
+F 2 "Connectors:AK300-3" H 8550 5250 50  0001 C CNN
+F 3 "" H 8550 5250 50  0001 C CNN
+	1    8550 5250
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR049
+U 1 1 5A7CF29D
+P 6200 1300
+F 0 "#PWR049" H 6200 1050 50  0001 C CNN
+F 1 "GND" H 6200 1150 50  0000 C CNN
+F 2 "" H 6200 1300 50  0001 C CNN
+F 3 "" H 6200 1300 50  0001 C CNN
+	1    6200 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x03 J14
+U 1 1 5A7D908B
+P 4000 4150
+F 0 "J14" H 4000 4250 50  0000 C CNN
+F 1 "UART" H 4000 3950 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 4000 4150 50  0001 C CNN
+F 3 "" H 4000 4150 50  0001 C CNN
+	1    4000 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01 J15
+U 1 1 5A7DAAA4
+P 4200 3600
+F 0 "J15" H 4200 3700 50  0000 C CNN
+F 1 "Conn_01x01" H 4200 3500 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4200 3600 50  0001 C CNN
+F 3 "" H 4200 3600 50  0001 C CNN
+	1    4200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L AVR-ISP-6 CON1
+U 1 1 5A7DE020
+P 4400 5000
+F 0 "CON1" H 4295 5240 50  0000 C CNN
+F 1 "AVR-ISP-6" H 4135 4770 50  0000 L BNN
+F 2 "Connectors:IDC_Header_Straight_6pins" V 3880 5040 50  0001 C CNN
+F 3 "" H 4375 5000 50  0001 C CNN
+	1    4400 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR050
+U 1 1 5A7DEBF9
+P 4500 5100
+F 0 "#PWR050" H 4500 4850 50  0001 C CNN
+F 1 "GND" H 4500 4950 50  0000 C CNN
+F 2 "" H 4500 5100 50  0001 C CNN
+F 3 "" H 4500 5100 50  0001 C CNN
+	1    4500 5100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Conn_01x08 J16
+U 1 1 5A7E0D51
+P 750 7100
+F 0 "J16" H 750 7500 50  0000 C CNN
+F 1 "SEGMENTS1" H 750 6600 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 750 7100 50  0001 C CNN
+F 3 "" H 750 7100 50  0001 C CNN
+	1    750  7100
+	-1   0    0    -1  
+$EndComp
+Text Label 950  6800 0    60   ~ 0
+SEGB
+Text Label 950  6900 0    60   ~ 0
+SEGG
+Text Label 950  7000 0    60   ~ 0
+SEGA
+Text Label 950  7100 0    60   ~ 0
+SEGC
+Text Label 950  7200 0    60   ~ 0
+SEGF
+Text Label 950  7300 0    60   ~ 0
+SEGDP
+Text Label 950  7400 0    60   ~ 0
+SEGE
+Text Label 950  7500 0    60   ~ 0
+SEGD
+$Comp
+L R R13
+U 1 1 5A8284E6
+P 8200 1050
+F 0 "R13" V 8280 1050 50  0000 C CNN
+F 1 "220" V 8200 1050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 8130 1050 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ221/RHM220KCT-ND/1762990" H 8200 1050 50  0001 C CNN
+F 4 "ESR10EZPJ221" V 8200 1050 60  0001 C CNN "MPN"
+F 5 "RHM220KCT-ND" V 8200 1050 60  0001 C CNN "DigiKey"
+	1    8200 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D4
+U 1 1 5A82857F
+P 8200 1450
+F 0 "D4" H 8200 1550 50  0000 C CNN
+F 1 "LED" H 8200 1350 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8200 1450 50  0001 C CNN
+F 3 "" H 8200 1450 50  0001 C CNN
+	1    8200 1450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +5V #PWR051
+U 1 1 5A82872B
+P 8200 900
+F 0 "#PWR051" H 8200 750 50  0001 C CNN
+F 1 "+5V" H 8200 1040 50  0000 C CNN
+F 2 "" H 8200 900 50  0001 C CNN
+F 3 "" H 8200 900 50  0001 C CNN
+	1    8200 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR052
+U 1 1 5A8287C1
+P 8200 1600
+F 0 "#PWR052" H 8200 1350 50  0001 C CNN
+F 1 "GND" H 8200 1450 50  0000 C CNN
+F 2 "" H 8200 1600 50  0001 C CNN
+F 3 "" H 8200 1600 50  0001 C CNN
+	1    8200 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR053
+U 1 1 5A8752EE
+P 3800 4250
+F 0 "#PWR053" H 3800 4000 50  0001 C CNN
+F 1 "GND" H 3800 4100 50  0000 C CNN
+F 2 "" H 3800 4250 50  0001 C CNN
+F 3 "" H 3800 4250 50  0001 C CNN
+	1    3800 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x03 J17
+U 1 1 5A8948AE
+P 7150 4800
+F 0 "J17" H 7150 5000 50  0000 C CNN
+F 1 "XTRA_GND" H 7150 4600 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 7150 4800 50  0001 C CNN
+F 3 "" H 7150 4800 50  0001 C CNN
+	1    7150 4800
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	1050 1100 1050 1600
 Wire Wire Line
@@ -1430,9 +1628,7 @@ Connection ~ 6450 1100
 Wire Wire Line
 	5250 1250 5800 1250
 Wire Wire Line
-	5250 700  4200 700 
-Wire Wire Line
-	5300 700  5700 700 
+	4200 700  5700 700 
 Wire Wire Line
 	5500 700  5500 700 
 Wire Wire Line
@@ -1672,56 +1868,12 @@ Wire Wire Line
 	9150 3200 9250 3200
 Wire Wire Line
 	9250 3400 8750 3400
-$Comp
-L Fuse F2
-U 1 1 5A79D633
-P 9000 5150
-F 0 "F2" V 9080 5150 50  0000 C CNN
-F 1 "Fuse" V 8925 5150 50  0000 C CNN
-F 2 "Fuse_Holders_and_Fuses:Fuseholder5x20_horiz_SemiClosed_Casing10x25mm" V 8930 5150 50  0001 C CNN
-F 3 "" H 9000 5150 50  0001 C CNN
-	1    9000 5150
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	9150 5150 9250 5150
-$Comp
-L Screw_Terminal_01x03 J12
-U 1 1 5A79EE39
-P 8550 3300
-F 0 "J12" H 8550 3500 50  0000 C CNN
-F 1 "CH0_AC" H 8550 3100 50  0000 C CNN
-F 2 "Connectors:AK300-3" H 8550 3300 50  0001 C CNN
-F 3 "" H 8550 3300 50  0001 C CNN
-	1    8550 3300
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	9250 5350 8750 5350
-$Comp
-L Screw_Terminal_01x03 J13
-U 1 1 5A79F62D
-P 8550 5250
-F 0 "J13" H 8550 5450 50  0000 C CNN
-F 1 "CH1_AC" H 8550 5050 50  0000 C CNN
-F 2 "Connectors:AK300-3" H 8550 5250 50  0001 C CNN
-F 3 "" H 8550 5250 50  0001 C CNN
-	1    8550 5250
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	8750 5150 8850 5150
-$Comp
-L GND #PWR049
-U 1 1 5A7CF29D
-P 6200 1300
-F 0 "#PWR049" H 6200 1050 50  0001 C CNN
-F 1 "GND" H 6200 1150 50  0000 C CNN
-F 2 "" H 6200 1300 50  0001 C CNN
-F 3 "" H 6200 1300 50  0001 C CNN
-	1    6200 1300
-	1    0    0    -1  
-$EndComp
 Connection ~ 6200 1150
 Wire Wire Line
 	8750 3300 9150 3300
@@ -1731,138 +1883,78 @@ Wire Wire Line
 	9150 5150 9150 5250
 Wire Wire Line
 	9150 5250 8750 5250
-$Comp
-L Conn_01x03 J14
-U 1 1 5A7D908B
-P 4000 4150
-F 0 "J14" H 4000 4250 50  0000 C CNN
-F 1 "UART" H 4000 3950 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 4000 4150 50  0001 C CNN
-F 3 "" H 4000 4150 50  0001 C CNN
-	1    4000 4150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3800 4050 3050 4050
 Wire Wire Line
 	3050 4150 3800 4150
-$Comp
-L Conn_01x01 J15
-U 1 1 5A7DAAA4
-P 4200 3600
-F 0 "J15" H 4200 3700 50  0000 C CNN
-F 1 "Conn_01x01" H 4200 3500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4200 3600 50  0001 C CNN
-F 3 "" H 4200 3600 50  0001 C CNN
-	1    4200 3600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3050 3600 4000 3600
-$Comp
-L AVR-ISP-6 CON1
-U 1 1 5A7DE020
-P 4400 5000
-F 0 "CON1" H 4295 5240 50  0000 C CNN
-F 1 "AVR-ISP-6" H 4135 4770 50  0000 L BNN
-F 2 "Connectors:IDC_Header_Straight_6pins" V 3880 5040 50  0001 C CNN
-F 3 "" H 4375 5000 50  0001 C CNN
-	1    4400 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR050
-U 1 1 5A7DEBF9
-P 4500 5100
-F 0 "#PWR050" H 4500 4850 50  0001 C CNN
-F 1 "GND" H 4500 4950 50  0000 C CNN
-F 2 "" H 4500 5100 50  0001 C CNN
-F 3 "" H 4500 5100 50  0001 C CNN
-	1    4500 5100
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Conn_01x08 J16
-U 1 1 5A7E0D51
-P 750 7100
-F 0 "J16" H 750 7500 50  0000 C CNN
-F 1 "SEGMENTS1" H 750 6600 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 750 7100 50  0001 C CNN
-F 3 "" H 750 7100 50  0001 C CNN
-	1    750  7100
-	-1   0    0    -1  
-$EndComp
-Text Label 950  6800 0    60   ~ 0
-SEGB
-Text Label 950  6900 0    60   ~ 0
-SEGG
-Text Label 950  7000 0    60   ~ 0
-SEGA
-Text Label 950  7100 0    60   ~ 0
-SEGC
-Text Label 950  7200 0    60   ~ 0
-SEGF
-Text Label 950  7300 0    60   ~ 0
-SEGDP
-Text Label 950  7400 0    60   ~ 0
-SEGE
-Text Label 950  7500 0    60   ~ 0
-SEGD
-$Comp
-L R R13
-U 1 1 5A8284E6
-P 8200 1050
-F 0 "R13" V 8280 1050 50  0000 C CNN
-F 1 "220" V 8200 1050 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 8130 1050 50  0001 C CNN
-F 3 "" H 8200 1050 50  0001 C CNN
-	1    8200 1050
-	1    0    0    -1  
-$EndComp
-$Comp
-L LED D4
-U 1 1 5A82857F
-P 8200 1450
-F 0 "D4" H 8200 1550 50  0000 C CNN
-F 1 "LED" H 8200 1350 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8200 1450 50  0001 C CNN
-F 3 "" H 8200 1450 50  0001 C CNN
-	1    8200 1450
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	8200 1300 8200 1200
+Wire Wire Line
+	6950 4700 6950 4900
+Connection ~ 6950 4800
 $Comp
-L +5V #PWR051
-U 1 1 5A82872B
-P 8200 900
-F 0 "#PWR051" H 8200 750 50  0001 C CNN
-F 1 "+5V" H 8200 1040 50  0000 C CNN
-F 2 "" H 8200 900 50  0001 C CNN
-F 3 "" H 8200 900 50  0001 C CNN
-	1    8200 900 
+L GND #PWR054
+U 1 1 5A895045
+P 6950 4900
+F 0 "#PWR054" H 6950 4650 50  0001 C CNN
+F 1 "GND" H 6950 4750 50  0000 C CNN
+F 2 "" H 6950 4900 50  0001 C CNN
+F 3 "" H 6950 4900 50  0001 C CNN
+	1    6950 4900
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR052
-U 1 1 5A8287C1
-P 8200 1600
-F 0 "#PWR052" H 8200 1350 50  0001 C CNN
-F 1 "GND" H 8200 1450 50  0000 C CNN
-F 2 "" H 8200 1600 50  0001 C CNN
-F 3 "" H 8200 1600 50  0001 C CNN
-	1    8200 1600
+L CP1 C6
+U 1 1 5A792AB6
+P 2100 1350
+F 0 "C6" H 2125 1450 50  0000 L CNN
+F 1 "6800uF" H 2125 1250 50  0000 L CNN
+F 2 "Capacitors_THT:CP_Radial_D18.0mm_P7.50mm" H 2100 1350 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEU-HD1V682/P15173-ND/2796849" H 2100 1350 50  0001 C CNN
+F 4 "EEU-HD1V682" H 2100 1350 60  0001 C CNN "MPN"
+F 5 "P15173-ND " H 2100 1350 60  0001 C CNN "DigiKey"
+	1    2100 1350
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
-U 1 1 5A8752EE
-P 3800 4250
-F 0 "#PWR?" H 3800 4000 50  0001 C CNN
-F 1 "GND" H 3800 4100 50  0000 C CNN
-F 2 "" H 3800 4250 50  0001 C CNN
-F 3 "" H 3800 4250 50  0001 C CNN
-	1    3800 4250
+L R R2
+U 1 1 5A8AD532
+P 3950 7000
+F 0 "R2" V 4030 7000 50  0000 C CNN
+F 1 "10k" V 3950 7000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3880 7000 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB103V/P10KDACT-ND/1465971" H 3950 7000 50  0001 C CNN
+F 4 "ERA-6AEB103V" V 3950 7000 60  0001 C CNN "MPN"
+F 5 "P10KDACT-ND" V 3950 7000 60  0001 C CNN "DigiKey"
+	1    3950 7000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C8
+U 1 1 5A8AE73B
+P 4550 7050
+F 0 "C8" H 4575 7150 50  0000 L CNN
+F 1 "100nF" H 4575 6950 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 4588 6900 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/kemet/C1206C104K5RAC7867/399-1249-1-ND/411524" H 4550 7050 50  0001 C CNN
+F 4 "C1206C104K5RAC7867" H 4550 7050 60  0001 C CNN "MPN"
+F 5 "399-1249-1-ND" H 4550 7050 60  0001 C CNN "DigiKey"
+	1    4550 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP1 C10
+U 1 1 5A8AE743
+P 4250 7050
+F 0 "C10" H 4275 7150 50  0000 L CNN
+F 1 "10uF" H 4275 6950 50  0000 L CNN
+F 2 "Capacitors_SMD:CP_Elec_4x4.5" H 4250 7050 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEE-1VA100WR/PCE3948CT-ND/766324" H 4250 7050 50  0001 C CNN
+F 4 "EEE-1VA100WR" H 4250 7050 60  0001 C CNN "MPN"
+F 5 "PCE3948CT-ND" H 4250 7050 60  0001 C CNN "DigiKey"
+	1    4250 7050
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
