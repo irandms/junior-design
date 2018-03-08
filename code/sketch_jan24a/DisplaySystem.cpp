@@ -3,7 +3,6 @@
 #include <stdint.h>
 
 #include "DisplaySystem.h"
-#include "pinDefines.h"
 
 /*
  * AttachSlaveSelect
@@ -160,7 +159,7 @@ void DisplaySystem::Initialize() {
   digitalWrite(slave_select, HIGH);
   digitalWrite(slave_select, LOW);
   SPI.transfer(0x0A); // MAX7221 config register a
-  SPI.transfer(0x0F); // intensity/brightness to maximum.
+  SPI.transfer(0x08); // intensity/brightness to maximum.
   digitalWrite(slave_select, HIGH);
   digitalWrite(slave_select, LOW);
   SPI.transfer(0x0B);

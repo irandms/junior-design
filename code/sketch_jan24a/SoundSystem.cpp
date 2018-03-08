@@ -34,10 +34,20 @@ void playBackgroundNote(Note note) {
   OCR2A = note.Tone2;
 }
 
-void playSong(const Note *song, const uint8_t song_length) {
+void playSong(const Note *song, const int8_t song_length) {
   SoundSystem_Enable();
   
   for(int i = 0; i < song_length; i++) {
+    playNote(song[i]);
+  }
+  
+  SoundSystem_Disable();
+}
+
+void playSong_reverse(const Note *song, const int8_t song_length) {
+  SoundSystem_Enable();
+  
+  for(int i = song_length-1; i >= 0; i--) {
     playNote(song[i]);
   }
   
@@ -54,7 +64,7 @@ void SoundSystem_Enable() {
     // Timer 0, Fast PWM/CTC Mode, 1/256 Clock Prescale
     TCCR0A = _BV(WGM01) | _BV(WGM00);
     TCCR0B = _BV(WGM02) | _BV(CS02);
-    
+
     // Timer 2, Fast PWM/CTC Mode, 1/256 Clock Prescale
     TCCR2A = _BV(WGM21) | _BV(WGM20);
     TCCR2B = _BV(WGM22) | _BV(CS22) | _BV(CS21);
@@ -80,9 +90,11 @@ void SoundSystem_Disable() {
     TIMSK2 &= ~_BV(OCIE2A);
 
     // Arduino uses Timer0 and Timer 2 internally, so re-write their CS values.
+    TCCR0A = 0b11;
     TCCR0B = 0b11;
+    TCCR2A = 0b1;
     TCCR2B = 0b100;
-    
+
     // Do not allow speaker pins as outputs
     SPEAKER1_DDR &= ~_BV(SPEAKER1_PIN);
     SPEAKER2_DDR &= ~_BV(SPEAKER2_PIN);

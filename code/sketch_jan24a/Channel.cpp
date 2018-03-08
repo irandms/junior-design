@@ -4,6 +4,8 @@
 #include "Channel.h"
 #include "pinDefines.h"
 
+#define AC_CALIBRATION_VAL  22.8
+
 /*
  * AttachPins
  *
@@ -106,10 +108,12 @@ bool Channel::Tick() {
 /*
  * ReadCurrent
  *
- * This method simply returns the value of the ChannelReadings' Read method
+ * This method simply updates the value of the Channels currentReading through 
+ * the ChannelReadings subobject.
  */
 double Channel::ReadCurrent() {
-  return reads.Read();
+  currentReading = reads.Read() / AC_CALIBRATION_VAL;
+  return currentReading;
 }
 
 /*
@@ -122,3 +126,7 @@ void Channel::CalculateDCValues() {
   reads.CalculateDCValues();
 }
 
+bool Channel::GetOvercurrentDetected() { return overcurrentDetected; }
+bool Channel::GetStatus() { return Enabled; }
+bool Channel::GetTimerStatus() { return TimerEnabled; }
+double Channel::GetCurrentReading() { return currentReading; }

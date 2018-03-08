@@ -3,6 +3,31 @@
 #include "SoundSystem.h"
 #include "scale16.h"
 
+const Note bluetooth[] = {
+    {C4, C4, 9}, 
+    {D4, D4, 9},
+    {E4, E4, 9},
+    {F4, F4, 9},
+};
+
+const int8_t bluetooth_length = sizeof(bluetooth) / sizeof(Note);
+
+const Note channel_on[] = {
+    {G4, D4, 18},
+    {B4, G4, 6},
+    {C5, Gx4, 18},
+    {Ax4, G4, 6},
+};
+const int8_t channel_on_length = sizeof(channel_on) / sizeof(Note);
+
+const Note timer_expire[] = {
+    {G6, D6, 18},
+    {B6, G6, 6},
+    {C7, Gx6, 18},
+    {Ax6, G6, 6},
+};
+const int8_t timer_expire_length = sizeof(timer_expire) / sizeof(Note);
+
 const Note song[] = {
     {G3, E4, 18}, 
     {C4, G3, 6},
@@ -40,7 +65,7 @@ const Note song[] = {
     {D4, A3, 8}
 };
 
-const uint8_t song_length = sizeof(song) / sizeof(Note);
+const int8_t song_length = sizeof(song) / sizeof(Note);
 
 const Note upscale1[] = {
     {C4, C4, 9}, 
@@ -53,8 +78,9 @@ const Note upscale1[] = {
     {C5, C5, 9}
 };
 
-const uint8_t upscale1_length = sizeof(upscale1) / sizeof(Note);
+const int8_t upscale1_length = sizeof(upscale1) / sizeof(Note);
 
+/*
 const Note takeonme[] = {
     {Fx4, Fx4, 12},
     {0,0,1},
@@ -109,5 +135,6 @@ const Note takeonme[] = {
     {0,0,1},
 };
 
-const uint8_t takeonme_length = sizeof(takeonme) / sizeof(Note);
+const int8_t takeonme_length = sizeof(takeonme) / sizeof(Note);
 
+*/

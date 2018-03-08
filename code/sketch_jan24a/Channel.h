@@ -25,6 +25,7 @@ class Channel {
         int relayPin;               // The digital I/O pin that controls the relay for this channel
         int displayPin;             // The digital I/O pin that controls an LED to display channel state
         bool overcurrentDetected;   // If overcurrent has happened on this channel since boot
+        double currentReading;
     public:
         void AttachPins(int relayPin, int readPin, int displayPin, int colonPin);
         bool Tick();
@@ -36,4 +37,8 @@ class Channel {
         void Disable();
         double ReadCurrent();
         void CalculateDCValues();
+        bool GetOvercurrentDetected();
+        bool GetStatus();
+        bool GetTimerStatus();
+        double GetCurrentReading();
 };
