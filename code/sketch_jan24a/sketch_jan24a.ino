@@ -1,4 +1,4 @@
-// Library headers
+// Library heade
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -20,8 +20,6 @@
 
 #define NUM_CHANNELS    2
 #define MAX_TIMER_READS 4
-#define AC0_CALIB       22.8
-#define AC1_CALIB       22.8
 
 static Channel channels[NUM_CHANNELS];
 static DisplaySystem disp;
@@ -32,31 +30,24 @@ void setup() {
     // UART for debug,
     // SPI for Bluetooth/Display
     Serial.begin(115200);
+    Serial.println("begin pgm");
     SPI.usingInterrupt(255); // 255 for interrupts such as Timers (timer1)
     SPI.begin();
 
     // Attach AC channel control and read pins
     channels[0].AttachPins(CH0_EN_PIN, CH0_READ_PIN, CH0_DISP_PIN, CH0_COLON_PIN);
     channels[1].AttachPins(CH1_EN_PIN, CH1_READ_PIN, CH1_DISP_PIN, CH1_COLON_PIN);
-    
-    // Attach display slave select
-    disp.AttachSlaveSelect(DISPLAY_SS);
-    
     // Generate initial DC readings for both AC channels
     channels[0].CalculateDCValues();
     channels[1].CalculateDCValues();
-    
+    // Attach display slave select
+    disp.AttachSlaveSelect(DISPLAY_SS);
     // Init display system
     disp.Initialize();
 
-    
     // Initialize 1 second ISR for timer control
     Timer1_Initialize();
 
-    // Attach a 10 second timer to CH0,
-    // Attach a 1 hour timer to CH1, for testing.
-    channels[0].EnableTimer(15);
-    channels[1].EnableTimer(360);
 
     // Play bootup music
     playSong(song, song_length);
@@ -92,16 +83,26 @@ ISR(TIMER1_OVF_vect) {
         sei();
         playSong_reverse(timer_expire, timer_expire_length);
     }
-    Time remaining_ch0 = channels[0].GetDuration();
-    Time remaining_ch1 = channels[1].GetDuration();
 
-    if(remaining_ch0) {
-        disp.ToggleLED(CH0_COLON_PIN);
-        disp.WriteDigits(remaining_ch0, 0);
-    }
-    if(remaining_ch1) {
-        disp.ToggleLED(CH1_COLON_PIN);
-        disp.WriteDigits(remaining_ch1, 1);
+    // Check time remaining on each channel
+    for(uint8_t i = 0; i < NUM_CHANNELS; i++) {
+        Time remaining = channels[i].GetMinutesSeconds();
+
+        // Switch the display mode every 4 seconds, making sure
+        // to end on current mode at the end of the timer.
+        if(remaining % 4 == 0 && remaining != 0) {
+            if(channels[i].GetMode() == CH_DISP_MODE_TIME) {
+                channels[i].SetMode(CH_DISP_MODE_CURRENT);
+            }
+            else {
+                channels[i].SetMode(CH_DISP_MODE_TIME);
+            }
+        }
+
+        // Write time to display if we're in correct mode
+        if(channels[i].GetMode() == CH_DISP_MODE_TIME) {
+            disp.WriteDigits(remaining, i);
+        }
     }
 }
 
@@ -117,6 +118,62 @@ ISR (TIMER2_COMPA_vect)
     SPEAKER1_PORT ^= _BV(SPEAKER1_PIN);
 }
 
+void parseBLEPackets() {
+    int type = ble.read();
+    int timer_reads[MAX_TIMER_READS];           // Read at most 4 more characters after type
+    int chan_num;
+
+    if(type == 'R') {
+        for(uint8_t i = 0; i < NUM_CHANNELS; i++) {
+            ble.print(channels[i].GetStatus()); ble.print(" ");
+            ble.print(channels[i].GetTimerStatus()); ble.print(" ");
+            ble.print(channels[i].GetDuration()); ble.print(" ");
+            ble.print(channels[i].GetCurrentReading(), 4); ble.print(" ");
+            ble.print(channels[i].GetOvercurrentDetected()); ble.print(" ");
+        }
+        ble.print(" X");
+    }
+    else {
+        // Since we receive ASCII, a '0' character is integer value 48
+        // subtract the ASCII value of '0' to get into the correct range
+        chan_num = ble.read() - '0';
+        if(chan_num < 0 || chan_num > 1) {
+            return;
+        }
+
+        Time dur = 0;
+        switch(type) {
+            case 'N':
+                channels[chan_num].Enable();
+                channels[chan_num].DisableTimer();
+                playSong(channel_on, channel_on_length);
+                break;
+            case 'F':
+                channels[chan_num].Disable();
+                channels[chan_num].DisableTimer();
+                playSong_reverse(channel_on, channel_on_length);
+                break;
+            case 'S':
+                for(int i = 0; i < MAX_TIMER_READS; i++) {
+                    timer_reads[i] = ble.read() - '0';
+                }  
+                for(int i = 0; i < 4; i++) {
+                    if(timer_reads[i] > 9 || timer_reads[i] < 0) {
+                        break;
+                    }
+                    dur *= 10;
+                    dur += timer_reads[i];
+                }
+                if(dur > 0 && dur <= 3600) {
+                    channels[chan_num].EnableTimer(dur);
+                    playSong(channel_on, channel_on_length);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 // Unused; all code is in Setup with an event loop there to reduce globals when possible.
 void loop() {
@@ -124,12 +181,24 @@ void loop() {
     for(uint8_t i = 0; i < NUM_CHANNELS; i++) {
         double rms = channels[i].ReadCurrent();
 
+        //Serial.print(i); Serial.print(" ");
+        //Serial.println(rms);
+
         if(rms > 4.0) {
             // make really annoying sound until the end of time
+            channels[0].Disable();
+            channels[1].Disable();
             SoundSystem_Enable();
             playBackgroundNote(song[2]);
-            // Place display system in test mode
-            disp.TestMode();
+        }
+
+        if(channels[i].GetMode() == CH_DISP_MODE_CURRENT) {
+            if(channels[i].GetStatus()) {
+                disp.WriteDouble(rms, i);
+            }
+            else {
+                disp.WriteDouble(0.000, i);
+            }
         }
     }
 
@@ -146,67 +215,9 @@ void loop() {
         // Set module to DATA mode
         ble.setMode(BLUEFRUIT_MODE_DATA);
     }
-    if(ble.isConnected()) {
-
-    }
 
     while ( ble.available() )
     {
-        int type = ble.read();
-        int timer_reads[MAX_TIMER_READS];           // Read at most 4 more characters after type
-        int chan_num;
-        if(type == 'R') {
-            for(uint8_t i = 0; i < NUM_CHANNELS; i++) {
-                ble.print(channels[i].GetStatus()); ble.print(" ");
-                ble.print(channels[i].GetTimerStatus()); ble.print(" ");
-                ble.print(channels[i].GetDurationSeconds()); ble.print(" ");
-                ble.print(channels[i].GetCurrentReading() / AC0_CALIB); ble.print(" ");
-                ble.print(channels[i].GetOvercurrentDetected()); ble.print(" ");
-            }
-        }
-        else {
-            // Since we receive ASCII, a '0' character is integer value 48
-            // subtract the ASCII value of '0' to get into the correct range
-            chan_num = ble.read() - '0';
-            if(chan_num < 0 || chan_num > 1) {
-              break;
-            }
-
-            Time dur = 0;
-            switch(type) {
-                case 'N':
-                  Serial.print("Enabling channel ");
-                  Serial.println(chan_num);
-                  channels[chan_num].Enable();
-                  channels[chan_num].DisableTimer();
-                  playSong(channel_on, channel_on_length);
-                  break;
-                case 'F':
-                  Serial.print("Disabling channel ");
-                  Serial.println(chan_num);
-                  channels[chan_num].Disable();
-                  channels[chan_num].DisableTimer();
-                  playSong_reverse(channel_on, channel_on_length);
-                  break;
-                case 'S':
-                  for(int i = 0; i < MAX_TIMER_READS; i++) {
-                    timer_reads[i] = ble.read() - '0';
-                  }  
-                  for(int i = 0; i < 4; i++) {
-                    if(timer_reads[i] > 9 || timer_reads[i] < 0) {
-                      break;
-                    }
-                    dur *= 10;
-                    dur += timer_reads[i];
-                  }
-                  if(dur > 0 && dur <= 3600) {
-                    channels[chan_num].EnableTimer(dur);
-                    playSong(channel_on, channel_on_length);
-                  }
-                  break;
-                default:
-                  break;
-            }
-        }
+        parseBLEPackets();
     }
 }

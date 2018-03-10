@@ -4,7 +4,7 @@
 #include "Channel.h"
 #include "pinDefines.h"
 
-#define AC_CALIBRATION_VAL  22.8
+#define AC_CALIBRATION_VAL  68.36097
 
 /*
  * AttachPins
@@ -20,12 +20,21 @@
 void Channel::AttachPins(int relayPin, int readPin, int displayPin, int colonPin) {
     this->relayPin = relayPin;
     this->displayPin = displayPin;
+    this->colonPin = colonPin;
     reads.SetPin(readPin);
     setBit(CH_DDR, relayPin);
     setBit(CH_PORT, relayPin);
     pinMode(displayPin, OUTPUT);
     pinMode(colonPin, OUTPUT);
     overcurrentDetected = false;
+
+    // Disable colon pin if mode is in current (default)
+    if(mode == CH_DISP_MODE_CURRENT) {
+        digitalWrite(colonPin, HIGH);
+    }
+    if(enabled == false) {
+        digitalWrite(displayPin, HIGH);
+    }
 }
 
 /*
@@ -37,7 +46,7 @@ void Channel::AttachPins(int relayPin, int readPin, int displayPin, int colonPin
  */
 void Channel::EnableTimer(Time seconds) {
     t.SetDuration(seconds); // Pass the duration to the ChannelTimer
-    TimerEnabled = true;
+    timerEnabled = true;
     Enable();
 }
 
@@ -49,15 +58,17 @@ void Channel::EnableTimer(Time seconds) {
  * and the ChannelTimer's duration continues to decrease.
  */
 void Channel::DisableTimer() {
-    TimerEnabled = false;
+    mode = CH_DISP_MODE_CURRENT;
+    timerEnabled = false;
+    digitalWrite(colonPin, HIGH);
 }
 
-Time Channel::GetDurationSeconds() {
+Time Channel::GetDuration() {
   return t.GetDuration();
 }
 
 
-Time Channel::GetDuration() {
+Time Channel::GetMinutesSeconds() {
   return t.GetMinutesSeconds();
 }
 
@@ -67,7 +78,7 @@ Time Channel::GetDuration() {
  * This method enables an AC channel for output.
  */
 void Channel::Enable() {
-    Enabled = true;
+    enabled = true;
     clearBit(CH_PORT, relayPin);
     digitalWrite(displayPin, LOW);
 }
@@ -78,9 +89,19 @@ void Channel::Enable() {
  * This method disables an AC channel for output.
  */
 void Channel::Disable() {
-    Enabled = false;
+    enabled = false;
     setBit(CH_PORT, relayPin);
     digitalWrite(displayPin, HIGH);
+}
+
+void Channel::SetMode(ChannelDisplayMode mode) {
+    this->mode = mode;
+    if(mode == CH_DISP_MODE_CURRENT) {
+        digitalWrite(colonPin, HIGH);
+    }
+    else {
+        digitalWrite(colonPin, LOW);
+    }
 }
 
 /*
@@ -94,11 +115,11 @@ void Channel::Disable() {
 bool Channel::Tick() {
   bool Timer_Expired = false;
 
-  if(Enabled && TimerEnabled) {
+  if(enabled && timerEnabled) {
     Timer_Expired = t.Tick();
     if(Timer_Expired) {
+      DisableTimer();
       Disable();
-      TimerEnabled = false;
     }
   }
 
@@ -127,6 +148,7 @@ void Channel::CalculateDCValues() {
 }
 
 bool Channel::GetOvercurrentDetected() { return overcurrentDetected; }
-bool Channel::GetStatus() { return Enabled; }
-bool Channel::GetTimerStatus() { return TimerEnabled; }
+bool Channel::GetStatus() { return enabled; }
+bool Channel::GetTimerStatus() { return timerEnabled; }
 double Channel::GetCurrentReading() { return currentReading; }
+ChannelDisplayMode Channel::GetMode() { return mode; }
